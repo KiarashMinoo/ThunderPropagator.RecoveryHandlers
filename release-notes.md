@@ -1,9 +1,5 @@
-## [1.0.1-beta.168] — 2026-07-14
+## [2.0.0-beta.1] — 2026-07-19
 
-### 📦 Dependencies
+### 🚀 Features
 
-| Package | Old | New |
-|---------|-----|-----|
-| MongoDB.Driver | 3.9.0 | 3.10.0 |
-
-- Bump MongoDB.Driver from 3.9.0 to 3.10.0 `(340ac152)` — dependabot[bot]
+- initialize recovery handler providers `(a2b3c04)` — Kiarash Minoo
