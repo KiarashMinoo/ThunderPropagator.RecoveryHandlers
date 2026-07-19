@@ -64,8 +64,8 @@ jobs:
     uses: KiarashMinoo/.github/.github/workflows/reusable-ci.yml@main
     with:
       channel: beta
-      solution-path: 'ThunderPropagator.slnx'
-      configurations: '["Debug", "Release", "Cluster"]'
+      solution-path: 'ThunderPropagator.RecoveryHandlers.slnx'
+      configurations: '["Debug", "Release"]'
       publish-to-nuget: true
       nuget-target: 'nuget.org'
       nuget-auth-mode: 'classic'
@@ -84,8 +84,8 @@ jobs:
     uses: KiarashMinoo/.github/.github/workflows/reusable-ci.yml@main
     with:
       channel: ${{ inputs.release-mode }}
-      solution-path: 'ThunderPropagator.slnx'
-      configurations: '["Debug", "Release", "Cluster"]'
+      solution-path: 'ThunderPropagator.RecoveryHandlers.slnx'
+      configurations: '["Debug", "Release"]'
       publish-to-nuget: true
       nuget-target: 'nuget.org'
       nuget-auth-mode: 'classic'

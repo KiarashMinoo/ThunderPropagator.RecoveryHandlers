@@ -75,7 +75,7 @@ The version is set in `Directory.Build.props` under `<Version>`. The CI pipeline
 
 ### Solution File
 
-The solution uses the `.slnx` format (`ThunderPropagator.slnx`) required by JetBrains Rider. The legacy `ThunderPropagator.sln` has been removed.
+The solution uses the `.slnx` format (`ThunderPropagator.RecoveryHandlers.slnx`) required by JetBrains Rider. The legacy `ThunderPropagator.RecoveryHandlers.sln` has been removed.
 
 ### Testing
 

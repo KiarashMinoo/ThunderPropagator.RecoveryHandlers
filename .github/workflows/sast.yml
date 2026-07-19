@@ -44,7 +44,7 @@ jobs:
         8.0.x
         9.0.x
         10.0.x
-      solution-path: 'ThunderPropagator.slnx'
+      solution-path: 'ThunderPropagator.RecoveryHandlers.slnx'
       enable-codeql: ${{ github.event_name == 'workflow_dispatch' && inputs.enable-codeql || true }}
       enable-devskim: ${{ github.event_name == 'workflow_dispatch' && inputs.enable-devskim || true }}
       enable-secret-scan: ${{ github.event_name == 'workflow_dispatch' && inputs.enable-secret-scan || true }}
