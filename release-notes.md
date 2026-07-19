@@ -1,12 +1,11 @@
-## [1.0.0-beta.1] — 2026-07-19
+## [1.0.0-beta.2] — 2026-07-19
 
-### 🚀 Features
+### 📦 Dependencies
 
-- initialize recovery handler providers `(a2b3c04)` — Kiarash Minoo
-- update solution paths for recovery handlers in CI configurations `(5d5beba)` — Kiarash Minoo
-- update version to 1.0.0-beta.0 in Directory.Build.props `(c69f47c)` — Kiarash Minoo
+| Package | Old | New |
+|---------|-----|-----|
+| Microsoft.NET.Test.Sdk | 18.7.0 | 18.8.1 |
+| MongoDB.Driver | 3.9.0 | 3.10.0 |
 
-### 🏠 Chores
-
-- bump version to 2.0.0-beta.1 [skip ci] `(ddc06df)` — github-actions[bot]
-- bump version to 2.0.0-beta.2 [skip ci] `(d84e422)` — github-actions[bot]
+- Bump the testing group with 1 update `(17daa3e)` — dependabot[bot]
+- Bump MongoDB.Driver from 3.9.0 to 3.10.0 `(d827486)` — dependabot[bot]
