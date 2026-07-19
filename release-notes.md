@@ -1,5 +1,5 @@
-## [1.0.0-beta.3] — 2026-07-19
+## [1.0.0-beta.4] — 2026-07-19
 
-### 🧪 Tests
+### 📝 Documentation
 
-- add recovery handler unit and architecture coverage `(07ea852)` — Kiarash Minoo
+- rebuild recovery handler documentation `(2a1bc87)` — Kiarash Minoo
