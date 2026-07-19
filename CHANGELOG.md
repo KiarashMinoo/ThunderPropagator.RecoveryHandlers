@@ -1,0 +1,849 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [1.0.1-beta.168] — 2026-07-14
+
+### 📦 Dependencies
+
+| Package | Old | New |
+|---------|-----|-----|
+| MongoDB.Driver | 3.9.0 | 3.10.0 |
+
+- Bump MongoDB.Driver from 3.9.0 to 3.10.0 `(340ac152)` — dependabot[bot]
+
+## [1.0.1-beta.167] — 2026-07-14
+
+### 📦 Dependencies
+
+| Package | Old | New |
+|---------|-----|-----|
+| SharpCompress | 0.49.1 | 0.50.0 |
+| StackExchange.Redis | 3.0.0 | 3.0.17 |
+
+- Bump SharpCompress from 0.49.1 to 0.50.0 `(c81de3b2)` — dependabot[bot]
+- Bump StackExchange.Redis from 3.0.0 to 3.0.17 `(032feda5)` — dependabot[bot]
+
+## [1.0.1-beta.166] — 2026-07-14
+
+### 📦 Dependencies
+
+| Package | Old | New |
+|---------|-----|-----|
+| MQTTnet | 5.1.0.1559 | 5.2.0.1603 |
+| MQTTnet.AspNetCore | 5.1.0.1559 | 5.2.0.1603 |
+| Microsoft.NET.Test.Sdk | 18.6.0 | 18.7.0 |
+| NSubstitute | 5.3.0 | 6.0.0 |
+
+- Bump MQTTnet and MQTTnet.AspNetCore `(867cb862)` — dependabot[bot]
+- Bump the testing group with 2 updates `(64df0ff1)` — dependabot[bot]
+
+## [1.0.1-beta.165] — 2026-07-14
+
+### 📦 Dependencies
+
+| Package | Old | New |
+|---------|-----|-----|
+| Microsoft.CodeAnalysis.CSharp.Scripting | 5.3.0 | 5.6.0 |
+
+- Bump Microsoft.CodeAnalysis.CSharp.Scripting from 5.3.0 to 5.6.0 `(8d399e3a)` — dependabot[bot]
+
+## [1.0.1-beta.164] — 2026-07-13
+
+### ⚙️ CI / Tooling
+
+- Add NuGet OIDC publish jobs and refresh ignores `(0aded97d)` — Kiarash Minoo
+- Tune Dependabot groups and SAST cadence `(04c0b190)` — Kiarash Minoo
+- Unify CI workflow and add run concurrency `(0e2f4de6)` — Kiarash Minoo
+
+## [Unreleased]
+
+### 🚀 Features
+- Initial Commit `(c9dddab8)` — Ahmad(Kia) Minoo
+- Introduce abstract connection subscription pushing message and related classes `(3c46c705)` — Kiarash Minoo
+- Add GITHUB_TOKEN environment variable for CI workflows and update nuget.config for GitHub credentials `(b9e15f1f)` — Kiarash Minoo
+- Add initial application structure with core interfaces and enums `(e063823d)` — Kiarash Minoo
+- Update BuildingBlocks version to 1.0.1-beta.4 and adjust MongoDB.Driver version `(3dcbdf85)` — Kiarash Minoo
+- Add package cleanup script and update versioning configuration `(f000cf0a)` — Kiarash Minoo
+- Add PowerShell scripts for generating changelogs and release notes `(5865fc5d)` — Kiarash Minoo
+- Replace in-app License Manager with native LicenseManager C++ library (via C# P/Invoke) - First commit #1 `(42974ae5)` — Kiarash Minoo
+- Set lock and reupdate package `(49c32bf4)` — Ahmad(Kia) Minoo
+- Fix health check adding `(8bbbe9bd)` — Ahmad(Kia) Minoo
+- More checks on channel enabled state `(e36a9b99)` — Ahmad(Kia) Minoo
+- Ignore auto restore during channel initialization `(c25f018a)` — Ahmad(Kia) Minoo
+- More handlers on feeders and channels statuses `(35c3d3ee)` — Ahmad(Kia) Minoo
+- Add constructors to AbstractFeederConfiguration `(5eed03fc)` — Ahmad(Kia) Minoo
+- Problem solving on locks `(4bf806e4)` — Ahmad(Kia) Minoo
+- Considering lock on filling channels and feeders `(55b71375)` — Ahmad(Kia) Minoo
+- Handle channel enable status `(aa752472)` — Ahmad(Kia) Minoo
+- Fix thread instantiating on quic startup and add features list get `(eb9e0c49)` — Ahmad(Kia) Minoo
+- Fixing license manager problems `(627fb2c6)` — Ahmad(Kia) Minoo
+- Set public modifier for IsAvailableOnDemoAttribute `(388ca0d8)` — Ahmad(Kia) Minoo
+- Impl demo license manager `(de0b0ada)` — Ahmad(Kia) Minoo
+- Remove binding dictionary from InfiniteDataStreamSubscribeDto `(e094c3bc)` — Ahmad(Kia) Minoo
+- Fixing ids deserialization problem `(a5b0b734)` — Ahmad(Kia) Minoo
+- Completing quic protocol `(5400ce10)` — Ahmad(Kia) Minoo
+- Disable taking snapshot when snapshot setting is disable `(7a9e746d)` — Ahmad(Kia) Minoo
+- Replacing some lock mechanism with concurrent dictionary `(544b932f)` — Ahmad(Kia) Minoo
+- Removing semaphore from emitMessage of channel `(fd8c3096)` — Ahmad(Kia) Minoo
+- Doing some reverts on git `(5b5381ba)` — Ahmad(Kia) Minoo
+- Revert "sc" `(de817bb3)` — Ahmad(Kia) Minoo
+- Revert "removing all asparallel linq extensions" `(e4bd92ed)` — Ahmad(Kia) Minoo
+- Revert "sc" `(c1d0f271)` — Ahmad(Kia) Minoo
+- Sc `(ebef0353)` — Ahmad(Kia) Minoo
+- Removing all asparallel linq extensions `(288f5c80)` — Ahmad(Kia) Minoo
+- Sc `(fdfd6007)` — Ahmad(Kia) Minoo
+- Sc `(31a3356a)` — Ahmad(Kia) Minoo
+- Sc `(a92dd45d)` — Ahmad(Kia) Minoo
+- Sc `(2e8ba16a)` — Ahmad(Kia) Minoo
+- Changing messages to dictionary `(bbeea0d5)` — Ahmad(Kia) Minoo
+- Some changes `(45217299)` — Ahmad(Kia) Minoo
+- Report some debug console `(b624a961)` — Ahmad(Kia) Minoo
+- Some debugging info `(5998c5df)` — Ahmad(Kia) Minoo
+- Logging sleep `(4f9ecd6e)` — Ahmad(Kia) Minoo
+- Fixing message splitting `(38628d39)` — Ahmad(Kia) Minoo
+- Bug fix on ConnectionSubscriptionPushingMessage format `(0ba4973b)` — Ahmad(Kia) Minoo
+- Fixing receive pipelines response `(9892df4f)` — Ahmad(Kia) Minoo
+- Doing some performance change `(12d3bc2a)` — Ahmad(Kia) Minoo
+- Instantiating dictionaries `(c671ecd5)` — Ahmad(Kia) Minoo
+- Icons `(bf167c33)` — Ahmad(Kia) Minoo
+- Nuget `(0cef82fc)` — Ahmad(Kia) Minoo
+- Set conditional maximum count for snapshot entries `(50c0c50c)` — Ahmad(Kia) Minoo
+- Handling features `(1bfab901)` — Ahmad(Kia) Minoo
+- Changing ActivationFileCipherKey `(8e726d6a)` — Ahmad(Kia) Minoo
+- Fixing channelType on AbstractChannelMetadata `(8e7af2c7)` — Ahmad(Kia) Minoo
+- Changing on properties `(bc0cd3e2)` — Ahmad(Kia) Minoo
+- Changing telemetry names `(782448ca)` — Ahmad(Kia) Minoo
+- Replacing thread sleep with task delay `(b357d40c)` — Ahmad(Kia) Minoo
+- Fix license loop `(eb86a775)` — Ahmad(Kia) Minoo
+- Fix filtering on receiver pipelines `(cc170568)` — Kiarash Minoo
+- Set InternalsVisibleTo `(ee7bd8ef)` — Kiarash Minoo
+- Fix internal visibility `(72ada5bd)` — Kiarash Minoo
+- Handling LicenseManager allowance `(062ee90e)` — Kiarash Minoo
+- Handle subscription disposing `(e77115c4)` — Kiarash Minoo
+- Handling time series snapshots `(eea86039)` — Kiarash Minoo
+- Fixing PostgresqlRecoveryHandler hibernation `(c3f9979a)` — Kiarash Minoo
+- Subscriptions capacity `(4cf927e0)` — Kiarash Minoo
+- Fixing snapshot persistence `(3fd9e91b)` — Kiarash Minoo
+- Logging send information on debug `(58eee14d)` — Kiarash Minoo
+- Handling concurrent dictionaries `(efe0d8ce)` — Kiarash Minoo
+- Fixing solution problem on build `(7c2497fa)` — Kiarash Minoo
+- Memory allocation on critical dictionaries `(ad549659)` — Kiarash Minoo
+- Check feeder feature allowance `(99908874)` — Kiarash Minoo
+- Make FeederFeature public `(0e074817)` — Kiarash Minoo
+- Bugfix `(47867b0c)` — Kiarash Minoo
+- Bug fix on feeders features `(60820767)` — Kiarash Minoo
+- Overloading FeederResolver `(2b62ed31)` — Kiarash Minoo
+- Modify UnlimitedSubscriptionsFeature capacity `(ee233243)` — Kiarash Minoo
+- Fixing lock mechanism on license manager providers `(42a0d0f6)` — Kiarash Minoo
+- Remove redundant constructors from AbstractChannelMetadata `(5029e688)` — Kiarash Minoo
+- Restricting usages of feeders by license manager `(a4e37394)` — Kiarash Minoo
+- Implementing pagination on searches `(55c1e618)` — Kiarash Minoo
+- Delete nuget.config `(773abf9c)` — Kiarash Minoo
+- Performance improvment `(bba8bbc3)` — Kiarash Minoo
+- Logging BuildChannelInfo `(c869096b)` — Kiarash Minoo
+- Logging startup process `(c1c7b7af)` — Kiarash Minoo
+- Setting arguments for DelegativeFeeders `(b6243ae7)` — Kiarash Minoo
+- Adding EnrichmentScriptEventArgs `(5deec148)` — Kiarash Minoo
+- Bug fixing on write hibernation `(084eb58c)` — Kiarash Minoo
+- Bug fixing on hibernation `(5a4863af)` — Kiarash Minoo
+- Remove logging input parameters `(3d54b42a)` — Kiarash Minoo
+- Logging SnapshotEntry parameters `(ec0d5634)` — Kiarash Minoo
+- Removing script logs `(271f28c8)` — Kiarash Minoo
+- Fixing postgresql script generation `(86cb7f06)` — Kiarash Minoo
+- Log generated scripts `(afaed0b7)` — Kiarash Minoo
+- Bug fixing for correlationId `(3e927710)` — Kiarash Minoo
+- Reformating semaphores `(06d64f6d)` — Kiarash Minoo
+- Bug fixing for "Collection was modified; enumeration operation may not execute" `(190b7378)` — Kiarash Minoo
+- Fixing structurea `(418fdc4d)` — Kiarash Minoo
+- Make backup public `(672eee5e)` — Kiarash Minoo
+- Write some test cases `(2e63253c)` — Kiarash Minoo
+- Writing some test cases `(62155904)` — Kiarash Minoo
+- Implementing hibernation `(2b3e76db)` — Kiarash Minoo
+- Add packageSourceCredentials `(be3b7466)` — Kiarash Minoo
+- Setting nuget.config `(1c0bde85)` — Kiarash Minoo
+- Implement compression on snapshot entries `(c860df74)` — Kiarash Minoo
+- Formating changes `(b9113d14)` — Kiarash Minoo
+- Improvement changes `(990a67be)` — Kiarash Minoo
+- Build bug fix `(de9c2b9a)` — Kiarash Minoo
+- Thread pool and subscriptions `(d0fc1d56)` — Kiarash Minoo
+- Do some changes on thread pool `(d2bab310)` — Kiarash Minoo
+- Update docker-image.yml `(cb411b55)` — Kiarash Minoo
+- Removing unused github configurations `(bf3187bd)` — Kiarash Minoo
+- Update Docker-Buildx `(a769f948)` — Kiarash Minoo
+- Update docker-publish `(f6fac7a5)` — Kiarash Minoo
+- Create Docker-Buildx `(2b10d00e)` — Kiarash Minoo
+- Create docker-publish `(a35681f9)` — Kiarash Minoo
+- Multi platforming `(c543b393)` — Kiarash Minoo
+- Use task.delay instead thread.sleep `(c99d459d)` — Kiarash Minoo
+- PercentChannelProgramsDescriptor `(8ff9e009)` — Kiarash Minoo
+- Increasing application threadpool configurations `(8fec5a7d)` — Kiarash Minoo
+- Enriching exceptions `(fd566b83)` — Kiarash Minoo
+- Fixing subscriptions `(310f9f76)` — Kiarash Minoo
+- Updating .gitignore for... `(e8c04257)` — Kiarash Minoo
+- Reconfiguring Dockerfile `(b679671d)` — Kiarash Minoo
+- Progressbar `(083c977a)` — Ahmad(Kia) Minoo
+- Fixing progress bar `(28f8363b)` — Ahmad(Kia) Minoo
+- Fixing build bugs `(f7730817)` — Ahmad(Kia) Minoo
+- Fixing time series subscriptions `(c8c3af68)` — Ahmad(Kia) Minoo
+- Fixing build problem `(ac76d9b2)` — Ahmad(Kia) Minoo
+- Async methods managements `(a7475b7e)` — Ahmad(Kia) Minoo
+- Handing weather exceptions `(7de1a873)` — Ahmad(Kia) Minoo
+- Fixing recovery part `(fa182c8e)` — Ahmad(Kia) Minoo
+- Reformat classes `(c6a8d0c1)` — Ahmad(Kia) Minoo
+- Fixing mongo configuration `(8be0a1ec)` — Ahmad(Kia) Minoo
+- Fixing currency formats `(2bea0e70)` — Ahmad(Kia) Minoo
+- Setting ttl for timezones `(bf523baf)` — Ahmad(Kia) Minoo
+- Thread managements `(798f6bcb)` — Ahmad(Kia) Minoo
+- Fixing time series metadatas `(a21b6f53)` — Ahmad(Kia) Minoo
+- Global usings `(2d356e78)` — Ahmad(Kia) Minoo
+- Fixing build problem issues `(12a85168)` — Ahmad(Kia) Minoo
+- Fixing healthchecks issues `(536efef0)` — Ahmad(Kia) Minoo
+- Fixing snapshot pushing `(561eaaea)` — Ahmad(Kia) Minoo
+- UtilizationWindow `(0dcafa20)` — Ahmad(Kia) Minoo
+- Fixing formatter `(0f2c4fdd)` — Ahmad(Kia) Minoo
+- Fixing usages `(af59f6e7)` — Ahmad(Kia) Minoo
+- Problem solving on subscriptions `(af98cc09)` — Ahmad(Kia) Minoo
+- Changing timezones storage `(259e783c)` — Ahmad(Kia) Minoo
+- Fixing Dockerfile `(5b51fb62)` — Ahmad(Kia) Minoo
+- Handling weatherapi errors `(96f7efa1)` — Ahmad(Kia) Minoo
+- Implementing bulk request for weathers `(6ab395c8)` — Ahmad(Kia) Minoo
+- Cancellation tokens on publishing events `(6cdf60cb)` — Ahmad(Kia) Minoo
+- Structural changes on threads `(1fb90f49)` — Ahmad(Kia) Minoo
+- Structure changes `(a3e4279b)` — Ahmad(Kia) Minoo
+- Implement array of subscriptions `(09f3949d)` — Ahmad(Kia) Minoo
+- Fixing subscription error `(53041fe6)` — Ahmad(Kia) Minoo
+- Dividing cpu usage percentage per cpu units. `(12d65a8a)` — Ahmad(Kia) Minoo
+- Write application failures on error files `(4efbc266)` — Ahmad(Kia) Minoo
+- Some performance improvements `(c13b7f08)` — Ahmad(Kia) Minoo
+- XFrameOptions `(0ced2752)` — Ahmad(Kia) Minoo
+- Fixing hangfire iframe problem `(433c011f)` — Ahmad(Kia) Minoo
+- Set hangfire authentication only for production `(f00c60fe)` — Ahmad(Kia) Minoo
+- Persisting identity cookie as long as token valid `(784bf3c6)` — Ahmad(Kia) Minoo
+- Version 115 `(930096f4)` — Ahmad(Kia) Minoo
+- Fixing authentication `(c63e2e04)` — Ahmad(Kia) Minoo
+- Version 114 `(11029ca2)` — Ahmad(Kia) Minoo
+- Version 113 `(a951e9ac)` — Ahmad(Kia) Minoo
+- Handling locks `(ab870376)` — Ahmad(Kia) Minoo
+- Fixing change tracking concurrency problems `(20e46f94)` — Ahmad(Kia) Minoo
+- Do changes on clustring `(a1a785e4)` — Ahmad(Kia) Minoo
+- Version 112 `(aa297e68)` — Ahmad(Kia) Minoo
+- Cleaned `(5af16188)` — Ahmad(Kia) Minoo
+- Version 111 `(092c6939)` — Ahmad(Kia) Minoo
+- Version 110 `(987a9bfb)` — Ahmad(Kia) Minoo
+- Formating splitters `(71b905bc)` — Ahmad(Kia) Minoo
+- Fixing formatting `(2c845771)` — Ahmad(Kia) Minoo
+- Fixing namings `(e41c43fe)` — Ahmad(Kia) Minoo
+- Fixing field values deserializations `(b29ea4f3)` — Ahmad(Kia) Minoo
+- Fixing json values `(6e79ce8e)` — Ahmad(Kia) Minoo
+- Fixing ServiceConfigurations `(0ab1139a)` — Ahmad(Kia) Minoo
+- Fixing websocket connection `(1a1a5e79)` — Ahmad(Kia) Minoo
+- Some memory release `(9bea0450)` — Ahmad(Kia) Minoo
+- Some changes for memory leaks `(b08acb8f)` — Ahmad(Kia) Minoo
+- Startup bug fixing `(fdc1c3c7)` — Ahmad(Kia) Minoo
+- Add security policies on endpoints `(cd1a6bb0)` — Ahmad(Kia) Minoo
+- Adding alert to ResourceMonitoringChannel metadata `(a98757d4)` — Ahmad(Kia) Minoo
+- Fixing problems `(47f3a943)` — Ahmad(Kia) Minoo
+- Fixing syntax problem `(51394faa)` — Ahmad(Kia) Minoo
+- Adding resources healthchecks `(8aa3e4bd)` — Ahmad(Kia) Minoo
+- Fixing exception handler `(e695e530)` — Ahmad(Kia) Minoo
+- Fix logging problems `(8980eb1d)` — Ahmad(Kia) Minoo
+- Fixing monitorings datetime format `(c951e9e2)` — Ahmad(Kia) Minoo
+- Fixing channels `(36d4c072)` — Ahmad(Kia) Minoo
+- Adding forget password on authentication endpoints `(0c68279f)` — Ahmad(Kia) Minoo
+- Refresh token endpoint `(532a9c34)` — Ahmad(Kia) Minoo
+- Fixing forget password `(ea686a17)` — Ahmad(Kia) Minoo
+- Implementing identity mechanism `(d89488a3)` — Ahmad(Kia) Minoo
+- Fixing cookies `(a2afa190)` — Ahmad(Kia) Minoo
+- Fixing devops `(ef1ddd3c)` — Ahmad(Kia) Minoo
+- Fix logging mechanism `(c32c7b13)` — Ahmad(Kia) Minoo
+- Fixing cors `(e53caf3a)` — Ahmad(Kia) Minoo
+- Fixing app version `(0b83cbb1)` — Ahmad(Kia) Minoo
+- Adding descriptions `(90593c26)` — Ahmad(Kia) Minoo
+- Fixing logging `(ca337f82)` — Ahmad(Kia) Minoo
+- Implementing authentication endpoint `(0b19fffa)` — Ahmad(Kia) Minoo
+- Handling exceptions `(687b1b0c)` — Ahmad(Kia) Minoo
+- CancellationTokens `(54740158)` — Ahmad(Kia) Minoo
+- Concurrent startup for hosted services `(f0dd3e10)` — Ahmad(Kia) Minoo
+- Dockerfile changes `(377feebd)` — Ahmad(Kia) Minoo
+- Change clock feeding rate `(f1875cdd)` — Ahmad(Kia) Minoo
+- Adding message handling elapsed to metrics `(a4a20d41)` — Ahmad(Kia) Minoo
+- Fixing client channel problems `(6d7f820c)` — Ahmad(Kia) Minoo
+- Some changes on client `(ccb45d4f)` — Ahmad(Kia) Minoo
+- Implementing ping pong state for channels on client `(95241c85)` — Ahmad(Kia) Minoo
+- Reorder PingPong pipeline `(ebb69ca1)` — Ahmad(Kia) Minoo
+- Exception manager `(d615aaca)` — Ahmad(Kia) Minoo
+- Some changes on client `(08f158a4)` — Ahmad(Kia) Minoo
+- Fixing feederMessage `(0d96cc59)` — Ahmad(Kia) Minoo
+- Fixing serializers `(1a538859)` — Ahmad(Kia) Minoo
+- Modifing kafka deserializers `(8ec3a8e6)` — Ahmad(Kia) Minoo
+- Fixing feederMessage `(f0215da8)` — Ahmad(Kia) Minoo
+- Some changes on client types `(ff915bfc)` — Ahmad(Kia) Minoo
+- Do dome guard changes `(f0ec7009)` — Ahmad(Kia) Minoo
+- Some minor changes `(7f7853ab)` — Ahmad(Kia) Minoo
+- Some minor changes `(0e5b2386)` — Ahmad(Kia) Minoo
+- Health check names `(3e7c466e)` — Ahmad(Kia) Minoo
+- Fixing health checks names `(c7100e7c)` — Ahmad(Kia) Minoo
+- Add feeder providers to health checks `(d694bc32)` — Ahmad(Kia) Minoo
+- Adding server information `(a67638f1)` — Ahmad(Kia) Minoo
+- Fixing HealthNames `(c571df95)` — Ahmad(Kia) Minoo
+- Fixing ids problems `(cac90f74)` — Ahmad(Kia) Minoo
+- Fixing endpoints and health checks `(bfd75019)` — Ahmad(Kia) Minoo
+- Optimizing sockets `(bba76b21)` — Ahmad(Kia) Minoo
+- Changing some descriptions `(327bb2cd)` — Ahmad(Kia) Minoo
+- Ssl `(8ef77cf5)` — Ahmad(Kia) Minoo
+- Some sealing changes `(02fa10b0)` — Ahmad(Kia) Minoo
+- Some structural changes on namings `(479e70ce)` — Ahmad(Kia) Minoo
+- Fixing docker building problems `(b7c03b35)` — Ahmad(Kia) Minoo
+- Handling PreviousValue `(6527cbae)` — Ahmad(Kia) Minoo
+- Adding changed for changed values `(0953a6c6)` — Ahmad(Kia) Minoo
+- Implementing state from the client `(35d4f58e)` — Ahmad(Kia) Minoo
+- Implementing client `(c833aa42)` — Ahmad(Kia) Minoo
+- Implementing node id `(a8b734e4)` — Ahmad(Kia) Minoo
+- Fixing clock channel problems `(2f6d6088)` — Ahmad(Kia) Minoo
+- Fixing deserializers problems `(ad16306c)` — Ahmad(Kia) Minoo
+- Modifying docker `(f3e48793)` — Ahmad(Kia) Minoo
+- Indexed dictionary `(a7320474)` — Ahmad(Kia) Minoo
+- Sc `(093e7cf0)` — Ahmad(Kia) Minoo
+- Adding log processes commands and queries `(79e866bb)` — Ahmad(Kia) Minoo
+- Metrics `(cac977e3)` — Ahmad(Kia) Minoo
+- Managing metrics `(1374892e)` — Ahmad(Kia) Minoo
+- Implementing receive and send meters `(3eb3b108)` — Ahmad(Kia) Minoo
+- Set debug for the docker `(f33115c5)` — Ahmad(Kia) Minoo
+- Sc `(aa52b72e)` — Ahmad(Kia) Minoo
+- Handling on connect and console exporters `(2351af67)` — Ahmad(Kia) Minoo
+- Telemetry `(ff797762)` — Ahmad(Kia) Minoo
+- Start activity `(d46bba30)` — Ahmad(Kia) Minoo
+- Configuring resources fro otlp `(6e38c394)` — Ahmad(Kia) Minoo
+- Changes otlp configurations `(b55bb734)` — Ahmad(Kia) Minoo
+- Set statuses on activities `(c62e1eb8)` — Ahmad(Kia) Minoo
+- Add metrics on connecting and disconnecting `(6553f97e)` — Ahmad(Kia) Minoo
+- Implementing probe and ping pong `(00b453f8)` — Ahmad(Kia) Minoo
+- Adding demostock to channels `(416bfd33)` — Ahmad(Kia) Minoo
+- Camel casing the channel metadata response `(9b1c5193)` — Ahmad(Kia) Minoo
+- Removing logs from git tracking `(d15a5529)` — Ahmad(Kia) Minoo
+- Rechecking docker file `(c77c6d6a)` — Ahmad(Kia) Minoo
+- Recreating docker `(b224d833)` — Ahmad(Kia) Minoo
+- Handling startup exception `(fb37a0f0)` — Ahmad(Kia) Minoo
+- Adding description to FeatureMetadata `(caf81b6e)` — Ahmad(Kia) Minoo
+- Fixing quartz and docker problems `(c730dd29)` — Ahmad(Kia) Minoo
+- Fixing docker problem `(a338ae8b)` — Ahmad(Kia) Minoo
+- Binding socket url from page url `(0dac67eb)` — Ahmad(Kia) Minoo
+- Ignoring volumes folder from git `(9bea7de4)` — Ahmad(Kia) Minoo
+- Performance optimization `(b20acf71)` — Ahmad(Kia) Minoo
+- Fixing memory snapshot problem `(5d8a5f02)` — Ahmad(Kia) Minoo
+- Optimizing push events `(f589f31c)` — Ahmad(Kia) Minoo
+- FeederHandler changes `(2f9dafcf)` — Ahmad(Kia) Minoo
+- Changes on fetch services from scopped service provider `(1298f077)` — Ahmad(Kia) Minoo
+- Handling push piplines and events `(69c3de71)` — Ahmad(Kia) Minoo
+- Some bug fixes `(9f695ec4)` — Ahmad(Kia) Minoo
+- Portal domain changes `(ebaa3aac)` — Ahmad(Kia) Minoo
+- Reordering receive pipelines and change formatting of the push message `(18a9dd60)` — Ahmad(Kia) Minoo
+- Adding max request size for receiving messages `(e0ed2336)` — Ahmad(Kia) Minoo
+- Splitting authentication and authorization pipelines `(f96fef2c)` — Ahmad(Kia) Minoo
+- Authentication and authorization `(a063eb28)` — Ahmad(Kia) Minoo
+- Changing push mechanisms `(3ae220b9)` — Ahmad(Kia) Minoo
+- Setting enabled for ServerConfigurationModel `(061b51a6)` — Ahmad(Kia) Minoo
+- Yaml deserialization for request context `(6abc0425)` — Ahmad(Kia) Minoo
+- Adding json deserialization for RequestContentFormCollection `(d9f9114a)` — Ahmad(Kia) Minoo
+- Request context tests `(fe8fadec)` — Ahmad(Kia) Minoo
+- GetValueOrDefault `(db6688b1)` — Ahmad(Kia) Minoo
+- Continuing test cases of yaml serialization `(7f0f9ede)` — Ahmad(Kia) Minoo
+- Implementing tests for yaml serialization and deserialization on requests `(1340c722)` — Ahmad(Kia) Minoo
+- Configuring kestrel `(6ddf83b3)` — Ahmad(Kia) Minoo
+- Implementing kestrel configurations `(88b5479b)` — Ahmad(Kia) Minoo
+- Some changes `(ce94acd4)` — Ahmad(Kia) Minoo
+- Changes on snapshot handlers `(f1320869)` — Ahmad(Kia) Minoo
+- Adding some typo strings on the solution dictionary `(2682e273)` — Ahmad(Kia) Minoo
+- Add extra properties to feeder message `(fd71b280)` — Ahmad(Kia) Minoo
+- Reverting some commented logics `(31117217)` — Ahmad(Kia) Minoo
+- Changing on the solution structure `(13a65719)` — Ahmad(Kia) Minoo
+- Changing the request context form from the string to line seperated `(6c6b4dcd)` — Ahmad(Kia) Minoo
+- Redis push mechanism on subscription `(9a61483e)` — Ahmad(Kia) Minoo
+- Implement more ChannelProgramsDescriptor types `(7ecde9d0)` — Ahmad(Kia) Minoo
+- Checking the values before the setting value in the dictionary `(f22eac35)` — Ahmad(Kia) Minoo
+- Some minor changes `(b5bdc127)` — Ahmad(Kia) Minoo
+- Remove the recording video from the git `(75df13aa)` — Ahmad(Kia) Minoo
+
+### 🐛 Bug Fixes
+- Update BuildingBlocksVersion to 1.0.1-beta.14 `(ef516379)` — Kiarash Minoo
+- Update GH_TOKEN reference in CI workflows `(085bbed9)` — Kiarash Minoo
+- Add GH_TOKEN environment variable for build and pack jobs `(5bfd777c)` — Kiarash Minoo
+- Enhance dotnet clean command with configuration and platform parameters `(585711df)` — Kiarash Minoo
+- Correct username casing in nuget.config `(10bb82c4)` — Kiarash Minoo
+- Update GITHUB_TOKEN to GH_TOKEN in CI workflows and configuration files `(154f63ce)` — Kiarash Minoo
+- Rename GITHUB_TOKEN to GH_TOKEN in CI workflows and nuget.config `(0ab0d2a0)` — Kiarash Minoo
+- Normalize release notes for MSBuild compatibility `(7f9d0fc8)` — Kiarash Minoo
+
+### ♻️ Refactoring
+- Update copilot instructions for ThunderPropagator architecture and design patterns `(5bde1d93)` — Kiarash Minoo
+- Rename RapidStreamer to ThunderPropagator across project files `(25902c76)` — Kiarash Minoo
+- Remove redundant Debug configurations from solution file `(89980507)` — Kiarash Minoo
+- Simplify PackageId construction in project files `(70ca0a6f)` — Kiarash Minoo
+- Rename GetFeatureStatus to GetFeatureStatuses for consistency `(870d2fff)` — Kiarash Minoo
+- Remove unused using directives and update target framework to net10.0 `(fc431199)` — Kiarash Minoo
+
+### 📦 Dependencies
+- Refactor project structure and update configurations for ThunderPropagator `(8f0c06a3)` — Kiarash Minoo
+- Refactor unit tests and application code for improved clarity and functionality `(c8f8077e)` — Kiarash Minoo
+- Upgrade nuget packages `(b9d96f43)` — Ahmad(Kia) Minoo
+- Add documentations and upgrade nuget pckages `(ec25d564)` — Ahmad(Kia) Minoo
+- Update nuget packages and update github actions `(4b2b14fa)` — Ahmad(Kia) Minoo
+- Upgrade nuget packages `(490b5179)` — Ahmad(Kia) Minoo
+- Upgrade nuget packages `(95500f70)` — Ahmad(Kia) Minoo
+- Upgrade nuget packages and user Version instead of PackageVersion `(e99674e1)` — Ahmad(Kia) Minoo
+- Updating nuget packages and fix beta ci packages versioning `(6c26e0e2)` — Ahmad(Kia) Minoo
+- Upgrading nuget packages and update beta ci workflow to fix issues related packages versioning `(c29602b5)` — Ahmad(Kia) Minoo
+- Setting new structure and updating github workflows `(3b5db3df)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.164.0 `(3def8728)` — Kiarash Minoo
+- Bugfix on release configuration build `(933ce5e6)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.163.0 `(8443fdd7)` — Kiarash Minoo
+- Upgrade nuget packages `(607d1298)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.162.0 `(b182ac1a)` — Kiarash Minoo
+- Update project version to 1.0.161.0 `(c6955601)` — Kiarash Minoo
+- Update project version to 1.0.160.0 `(296e7a20)` — Kiarash Minoo
+- Upgrade nuget packages `(83949b85)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.159.0 `(830d23b7)` — Kiarash Minoo
+- Update project version to 1.0.158.0 `(de548023)` — Kiarash Minoo
+- Update project version to 1.0.157.0 `(e3288770)` — Kiarash Minoo
+- Update project version to 1.0.156.0 `(84f261cf)` — Kiarash Minoo
+- Update project version to 1.0.155.0 `(c20066f5)` — Kiarash Minoo
+- Handling channel and feeder disposal `(76dfbc55)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.154.0 `(903ebdc9)` — Kiarash Minoo
+- Configuration related to the webTransport `(e7e128a0)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.153.0 `(f9a0ec8a)` — Kiarash Minoo
+- Update project version to 1.0.152.0 `(63586947)` — Kiarash Minoo
+- Update project version to 1.0.151.0 `(7add1d9c)` — Kiarash Minoo
+- Update project version to 1.0.150.0 `(20b1809f)` — Kiarash Minoo
+- Update project version to 1.0.149.0 `(3cb5d079)` — Kiarash Minoo
+- Update project version to 1.0.148.0 `(a4f1c86c)` — Kiarash Minoo
+- Update project version to 1.0.147.0 `(7c15cb1a)` — Kiarash Minoo
+- Update project version to 1.0.146.0 `(40dd3e2c)` — Kiarash Minoo
+- Upgrade nuget packages `(7114e115)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.145.0 `(1c249764)` — Kiarash Minoo
+- Upgrade nuget packages `(00648e45)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.144.0 `(1383b599)` — Kiarash Minoo
+- Upgrade nuget packages `(8420aa27)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.143.0 `(d9a415c1)` — Kiarash Minoo
+- Upgrading nuget packages `(22ea168d)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.142.0 `(0442ffd2)` — Kiarash Minoo
+- Update project version to 1.0.141.0 `(1f419776)` — Kiarash Minoo
+- Upgrade nuget packages `(6b27eb85)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.140.0 `(01bc3e01)` — Kiarash Minoo
+- Upgrading nuget packages `(745197c7)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.139.0 `(2f3763b3)` — Kiarash Minoo
+- Fixing Telemetries `(0318bf1d)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.138.0 `(6386063c)` — Kiarash Minoo
+- Upgrading nuget packages and remove SystemTelemetry due to possibility of performance issue `(702c5d23)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.137.0 `(528ebc78)` — Kiarash Minoo
+- Upgrade nuget packages `(cf832e39)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.136.0 `(c5000d40)` — Kiarash Minoo
+- Fixing system resource monitoring `(2d671282)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.135.0 `(926d2215)` — Kiarash Minoo
+- Upgrade nuget packages `(f4ab1f64)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.134.0 `(8fcda585)` — Kiarash Minoo
+- Upgrades nuget packages `(69b20ea0)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.133.0 `(96983630)` — Kiarash Minoo
+- Changing on subscription enqueue process `(c9876532)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.132.0 `(79f20892)` — Kiarash Minoo
+- Update project version to 1.0.131.0 `(da6a6dc4)` — Kiarash Minoo
+- Update project version to 1.0.130.0 `(61e0663e)` — Kiarash Minoo
+- Update project version to 1.0.129.0 `(247ef96c)` — Kiarash Minoo
+- Update project version to 1.0.128.0 `(61a10da1)` — Kiarash Minoo
+- Update project version to 1.0.127.0 `(26c1930e)` — Kiarash Minoo
+- Update project version to 1.0.126.0 `(506784d7)` — Kiarash Minoo
+- Handling subscriptions snapshots `(caab20e0)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.125.0 `(f2bafbaa)` — Kiarash Minoo
+- Update project version to 1.0.124.0 `(42337b5c)` — Kiarash Minoo
+- Update project version to 1.0.123.0 `(f8eb0d85)` — Kiarash Minoo
+- Update project version to 1.0.122.0 `(efe6dd48)` — Kiarash Minoo
+- Upgrade nuget package `(3a130a05)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.121.0 `(e621c673)` — Kiarash Minoo
+- Update project version to 1.0.120.0 `(9e156faf)` — Kiarash Minoo
+- Update project version to 1.0.119.0 `(d8000ebe)` — Kiarash Minoo
+- Update project version to 1.0.118.0 `(91a3fbce)` — Kiarash Minoo
+- Update project version to 1.0.117.0 `(78ccd5dc)` — Kiarash Minoo
+- Update project version to 1.0.116.0 `(50003d4e)` — Kiarash Minoo
+- Update project version to 1.0.115.0 `(d9cd2a43)` — Kiarash Minoo
+- Update project version to 1.0.114.0 `(39f5ae4a)` — Kiarash Minoo
+- Upgrade nuget packages `(58b5d8a9)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.113.0 `(3d60ad45)` — Kiarash Minoo
+- Upgrading nuget packages `(1e467fd0)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.112.0 `(d6792091)` — Kiarash Minoo
+- Update project version to 1.0.111.0 `(5056f824)` — Kiarash Minoo
+- Handing push message rate on connection container `(5671895d)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.110.0 `(82528175)` — Kiarash Minoo
+- Update project version to 1.0.109.0 `(5e8b8ba8)` — Kiarash Minoo
+- Update project version to 1.0.108.0 `(fd0af649)` — Kiarash Minoo
+- Update project version to 1.0.107.0 `(3088067a)` — Kiarash Minoo
+- Update project version to 1.0.106.0 `(bdf5713f)` — Kiarash Minoo
+- Update project version to 1.0.105.0 `(9d7d431f)` — Kiarash Minoo
+- README.md `(0ea9788d)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.104.0 `(fd864d61)` — Kiarash Minoo
+- Set RequestsDescriptors only for .net9 `(e5a3880c)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.103.0 `(d6e2e02f)` — Kiarash Minoo
+- Upgrading nuget packages `(0e76d170)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.102.0 `(1b96c453)` — Kiarash Minoo
+- Upgrading nuget packages `(db7db106)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.101.0 `(9d42cc25)` — Kiarash Minoo
+- Update project version to 1.0.100.0 `(de114538)` — Kiarash Minoo
+- Bypassing licenses `(92f6fd25)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.99.0 `(3fedba89)` — Kiarash Minoo
+- Update project version to 1.0.98.0 `(ce19ff10)` — Kiarash Minoo
+- Update project version to 1.0.97.0 `(7e12717e)` — Kiarash Minoo
+- Fixing channel metadata `RequestsDescriptors` `(732e0a52)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.96.0 `(cdf23912)` — Kiarash Minoo
+- Update project version to 1.0.95.0 `(0a65ab8a)` — Kiarash Minoo
+- Implementing receive pipelines request metadata `(bce58d0e)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.94.0 `(875570fa)` — Kiarash Minoo
+- Upgrading nuget packages `(9cbc3cca)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.93.0 `(d9037756)` — Kiarash Minoo
+- Update project version to 1.0.92.0 `(d4a80f04)` — Kiarash Minoo
+- Fixing packageId and versions `(f26976a0)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.91.0 `(2fd7fc21)` — Kiarash Minoo
+- Implementing mqtt and upgrading nuget packages `(5db6cd0d)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.90.0 `(3bf43bbd)` — Kiarash Minoo
+- Reverting changes `(b308adeb)` — Ahmad(Kia) Minoo
+- Bug fixing on project CI/CD `(385e0a45)` — Ahmad(Kia) Minoo
+- Upgrading nuget packages `(334ff7b3)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.89.0 `(1fa2afe8)` — Kiarash Minoo
+- Update project version to 1.0.88.0 `(59e9ff24)` — Kiarash Minoo
+- Update project version to 1.0.87.0 `(a8c91682)` — Kiarash Minoo
+- Upgrading nuget packages `(2dd39546)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.86.0 `(722ff415)` — Kiarash Minoo
+- Upgrading nuget packages `(4a286971)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.85.0 `(7db34dce)` — Kiarash Minoo
+- Update project version to 1.0.84.0 `(6052b11e)` — Kiarash Minoo
+- Upgrading nuget packages `(ebeb677f)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.83.0 `(cf05c348)` — Kiarash Minoo
+- Upgrading nuget packages `(a08e04b5)` — Ahmad(Kia) Minoo
+- Update project version to 1.0.82.0 `(22dc8fab)` — Kiarash Minoo
+- Update project version to 1.0.81.0 `(6c807e8d)` — Kiarash Minoo
+- Update project version to 1.0.80.0 `(c53e2e50)` — Kiarash Minoo
+- Update project version to 1.0.79.0 `(7328edd5)` — Kiarash Minoo
+- Update project version to 1.0.78.0 `(1fa312fd)` — Kiarash Minoo
+- Update project version to 1.0.77.0 `(fb0ed3e3)` — Kiarash Minoo
+- Update project version to 1.0.76.0 `(0523f77d)` — Kiarash Minoo
+- Update project version to 1.0.75.0 `(568a48d3)` — Kiarash Minoo
+- Update project version to 1.0.74.0 `(d306c6e3)` — Kiarash Minoo
+- Handling dictionaries capacity and upgrading nuget packages `(e013dc28)` — Kiarash Minoo
+- Update project version to 1.0.73.0 `(ee511d96)` — Kiarash Minoo
+- Update project version to 1.0.72.0 `(b5e09665)` — Kiarash Minoo
+- Update project version to 1.0.71.0 `(83a427d4)` — Kiarash Minoo
+- Logging search `(4dd562d6)` — Kiarash Minoo
+- Update project version to 1.0.70.0 `(32bf8e3e)` — Kiarash Minoo
+- Upgrading nuget packages and solution build configurations `(e3881503)` — Kiarash Minoo
+- Update project version to 1.0.69.0 `(b701e5a8)` — Kiarash Minoo
+- Implementing dapper for postgresql recovery handler `(25848a18)` — Kiarash Minoo
+- Update project version to 1.0.68.0 `(04a08e69)` — Kiarash Minoo
+- Update project version to 1.0.67.0 `(0f794fc7)` — Kiarash Minoo
+- Upgrading nuget packages and improve lock mechanism `(537c60ec)` — Kiarash Minoo
+- Update project version to 1.0.66.0 `(d127a711)` — Kiarash Minoo
+- Update project version to 1.0.65.0 `(33a244f5)` — Kiarash Minoo
+- Update project version to 1.0.64.0 `(bcb3254b)` — Kiarash Minoo
+- Upgrading nuget packages `(8dcecbfd)` — Kiarash Minoo
+- Update project version to 1.0.63.0 `(d5d91991)` — Kiarash Minoo
+- Update project version to 1.0.62.0 `(053b42b6)` — Kiarash Minoo
+- Update project version to 1.0.61.0 `(cc29b509)` — Kiarash Minoo
+- Update project version to 1.0.60.0 `(6928127f)` — Kiarash Minoo
+- Update project version to 1.0.59.0 `(f37791ef)` — Kiarash Minoo
+- Update project version to 1.0.58.0 `(8a4f9b42)` — Kiarash Minoo
+- Implement LicenseManager `(525bbf3e)` — Kiarash Minoo
+- Update project version to 1.0.57.0 `(512186c2)` — Kiarash Minoo
+- Upgrading nuget packages `(0b7b7914)` — Kiarash Minoo
+- Update project version to 1.0.56.0 `(ab06dc04)` — Kiarash Minoo
+- Upgrading nuget packages `(8481370e)` — Kiarash Minoo
+- Update project version to 1.0.55.0 `(7eb8758f)` — Kiarash Minoo
+- Add arm64 support and upgrading nuget packages `(ea48afb0)` — Kiarash Minoo
+- Update project version to 1.0.54.0 `(aa71e84b)` — Kiarash Minoo
+- Upgrading nuget packages `(b5114d80)` — Kiarash Minoo
+- Update project version to 1.0.53.0 `(75830968)` — Kiarash Minoo
+- Microsoft.CodeAnalysis.CSharp.Scripting 4.8.0 `(3ad8d34c)` — Kiarash Minoo
+- Update project version to 1.0.52.0 `(3b5147b8)` — Kiarash Minoo
+- Upgrading nuget packages `(4c5324b3)` — Kiarash Minoo
+- Update project version to 1.0.51.0 `(6cbe1e81)` — Kiarash Minoo
+- Add supporting packages to .net 9 and upgrading nuget references `(c67a1fd9)` — Kiarash Minoo
+- Update project version to 1.0.50.0 `(adc0c169)` — Kiarash Minoo
+- Update project version to 1.0.49.0 `(bd3ebfe6)` — Kiarash Minoo
+- Upgrading nuget packages and performance improvement `(b4a252aa)` — Kiarash Minoo
+- Update project version to 1.0.48.0 `(20e13c53)` — Kiarash Minoo
+- Implement netjson and upgrading nuget packages `(a9936725)` — Kiarash Minoo
+- Update project version to 1.0.47.0 `(59214d3c)` — Kiarash Minoo
+- Update project version to 1.0.46.0 `(4acb0e8e)` — Kiarash Minoo
+- Update project version to 1.0.45.0 `(c3d742f3)` — Kiarash Minoo
+- Update project version to 1.0.44.0 `(e6b19f99)` — Kiarash Minoo
+- Upgrading nuget packages `(b47a4ae5)` — Kiarash Minoo
+- Update project version to 1.0.43.0 `(bfbdc2e3)` — Kiarash Minoo
+- Update project version to 1.0.42.0 `(0954b2b1)` — Kiarash Minoo
+- Update project version to 1.0.41.0 `(b26328fd)` — Kiarash Minoo
+- Update project version to 1.0.40.0 `(cf0e58cf)` — Kiarash Minoo
+- Update project version to 1.0.39.0 `(35e47887)` — Kiarash Minoo
+- Updating .gitignore for... `(0b9dcae2)` — Kiarash Minoo
+- Update project version to 1.0.38.0 `(89129eab)` — Kiarash Minoo
+- Bug fixing pn x64 platform `(9caab036)` — Kiarash Minoo
+- Update project version to 1.0.37.0 `(880eb225)` — Kiarash Minoo
+- Building multiple platforms `(165062b2)` — Kiarash Minoo
+- Update project version to 1.0.36.0 `(1dd6eb60)` — Kiarash Minoo
+- Update project version to 1.0.35.0 `(27b654ab)` — Kiarash Minoo
+- Fixing restore problem `(c11ce966)` — Kiarash Minoo
+- Update project version to 1.0.34.0 `(1fcb6a2b)` — Kiarash Minoo
+- Update project version to 1.0.33.0 `(a60e08dc)` — Kiarash Minoo
+- Update project version to 1.0.32.0 `(d9e37bab)` — Kiarash Minoo
+- Update project version to 1.0.31.0 `(8c4d6a38)` — Kiarash Minoo
+- Update project version to 1.0.30.0 `(5a906d32)` — Kiarash Minoo
+- Update project version to 1.0.29.0 `(b09225ad)` — Kiarash Minoo
+- Update project version to 1.0.28.0 `(19036ad3)` — Kiarash Minoo
+- Update project version to 1.0.27.0 `(d3679cbd)` — Kiarash Minoo
+- Remove Unused References `(2a5467e4)` — Kiarash Minoo
+- Update project version to 1.0.26.0 `(bd6f428f)` — Kiarash Minoo
+- Packages upgrades `(6703160b)` — Kiarash Minoo
+- Update project version to 1.0.25.0 `(a92762ff)` — Kiarash Minoo
+- Update project version to 1.0.24.0 `(7d54e1b8)` — Kiarash Minoo
+- Fixing nuget build bugs `(4baddff3)` — Kiarash Minoo
+- Infra nuget settings `(cd182a85)` — Kiarash Minoo
+- Update project version to 1.0.23.0 `(bb89f5dd)` — Kiarash Minoo
+- Packages upgrades `(ec7a6b0e)` — Kiarash Minoo
+- Fixing nuget packages settings `(d2c17599)` — Kiarash Minoo
+- Update project version to 1.0.22.0 `(b3695adf)` — Kiarash Minoo
+- Do some changes on packing `(cbce751b)` — Kiarash Minoo
+- Update project version to 1.0.21.0 `(17e10d72)` — Kiarash Minoo
+- Packages upgrades `(66b24e95)` — Kiarash Minoo
+- Update project version to 1.0.20.0 `(7c067e45)` — Kiarash Minoo
+- Unit tests `(21a4799b)` — Kiarash Minoo
+- Update project version to 1.0.19.0 `(b2d73a21)` — Kiarash Minoo
+- Implementing restore data when snapshot entry is hibernated `(d1af184b)` — Kiarash Minoo
+- Update project version to 1.0.18.0 `(26131667)` — Kiarash Minoo
+- Update project version to 1.0.17.0 `(43b42514)` — Kiarash Minoo
+- Test snapshotEntry hibernate state `(04b63de8)` — Kiarash Minoo
+- Update project version to 1.0.16.0 `(d9b3f71c)` — Kiarash Minoo
+- Implement test cases for channels(message encryptor and subscribe) `(5fa6e9f1)` — Kiarash Minoo
+- Update project version to 1.0.15.0 `(43d6b570)` — Kiarash Minoo
+- Update project version to 1.0.14.0 `(d748920c)` — Kiarash Minoo
+- Update project version to 1.0.13.0 `(fba36b13)` — Kiarash Minoo
+- Implementing some test cases `(6c9b5242)` — Kiarash Minoo
+- Update project version to 1.0.12.0 `(355d9954)` — Kiarash Minoo
+- Update project version to 1.0.11.0 `(cc049156)` — Kiarash Minoo
+- Packages upgrades `(ec9961df)` — Kiarash Minoo
+- Update project version to 1.0.10.0 `(0dbe24d5)` — Kiarash Minoo
+- Fixing bad characters `(615f0ef2)` — Kiarash Minoo
+- Update project version to 1.0.9.0 `(e443ee14)` — Kiarash Minoo
+- ContinuousIntegrationBuild `(129ce175)` — Kiarash Minoo
+- Update project version to 1.0.8.0 `(10cb1a57)` — Kiarash Minoo
+- Packages upgrades `(b163c700)` — Kiarash Minoo
+- Update project version to 1.0.7.0 `(750195b4)` — Kiarash Minoo
+- Update project version to 1.0.6.0 `(b6bc322b)` — Kiarash Minoo
+- Upgrade packages `(6ed9af07)` — Kiarash Minoo
+- Update project version to 1.0.5.0 `(a10e0761)` — Kiarash Minoo
+- Update project version to 1.0.4.0 `(3e2db82b)` — Kiarash Minoo
+- Update project version to 1.0.3.0 `(430b0c5f)` — Kiarash Minoo
+- Update project version to 1.0.2.0 `(66e9de70)` — Kiarash Minoo
+- Update project version to 1.0.1.0 `(b8ada5b8)` — Kiarash Minoo
+- Adding tests and set branch `(84af89a0)` — Kiarash Minoo
+- Change project structure to make it nuget package `(6a617909)` — Kiarash Minoo
+- Remove vulnerable packages `(bfe5606d)` — Kiarash Minoo
+- Configuring platforms `(bbd2b242)` — Kiarash Minoo
+- Support multiple databases for web `(12bf574d)` — Kiarash Minoo
+- Notifications channel `(d5791f16)` — Kiarash Minoo
+- Finalizing notifications development `(a942a38c)` — Kiarash Minoo
+- After Recovery `(5ca98203)` — Kiarash Minoo
+- Fixing streaming cycle `(af3155aa)` — Ahmad(Kia) Minoo
+- Fixing postgresql snapshot recovery `(d0f9556f)` — Ahmad(Kia) Minoo
+- Monitoring cpu usages `(db358c35)` — Ahmad(Kia) Minoo
+- Fixing problems `(4ddc189d)` — Ahmad(Kia) Minoo
+- Message frequency and migrations `(cd4a3a99)` — Kiarash Minoo
+- Packages upgrades `(22875ea0)` — Ahmad(Kia) Minoo
+- Implementing delegative and iterative feeders `(73b6d7c0)` — Ahmad(Kia) Minoo
+- Implementing different handlers for snapshots `(cdc9c2ee)` — Ahmad(Kia) Minoo
+- Adding some improvements `(4a66154d)` — Ahmad(Kia) Minoo
+- Timezones channel `(1a6bb5f2)` — Ahmad(Kia) Minoo
+- Dockerfile fixing `(fa987844)` — Ahmad(Kia) Minoo
+- Project structure changes `(6cea18c5)` — Ahmad(Kia) Minoo
+- Fixing average response time `(1373eede)` — Ahmad(Kia) Minoo
+- Hangfire dashboard `(aa5a6aba)` — Ahmad(Kia) Minoo
+- Handling concurrencies `(606a32fd)` — Ahmad(Kia) Minoo
+- Some changes on memory leaks `(98659884)` — Ahmad(Kia) Minoo
+- Snapshots `(e5e21ba8)` — Ahmad(Kia) Minoo
+- Adding nuget packages icon `(e5f88355)` — Ahmad(Kia) Minoo
+- Add more activity log `(9352a8e6)` — Ahmad(Kia) Minoo
+- Preparing nuget packages `(40f1c9a9)` — Ahmad(Kia) Minoo
+- Implementing rabbit mq feeder provider policies `(84e348ef)` — Ahmad(Kia) Minoo
+- Providers dependencies `(994ebccb)` — Ahmad(Kia) Minoo
+- Implement security policies for the providers and feeders `(c8a291cd)` — Ahmad(Kia) Minoo
+- Add cluster compiler flag `(24a19dbb)` — Ahmad(Kia) Minoo
+- Fixing CVE-2024-30105 vulnerability `(2d0d2c2b)` — Ahmad(Kia) Minoo
+- Packages upgrades `(f8cc8a66)` — Ahmad(Kia) Minoo
+- Fixing network monitor `(7075e3c0)` — Ahmad(Kia) Minoo
+- Adding peak connections and alerts. `(e370d83d)` — Ahmad(Kia) Minoo
+- Fixing health checks `(0c0f624d)` — Ahmad(Kia) Minoo
+- Add Throughput channel `(afefbdc7)` — Ahmad(Kia) Minoo
+- Implementing cluster `(a929aede)` — Ahmad(Kia) Minoo
+- Fixing unsubscribe `(2f5ffa45)` — Ahmad(Kia) Minoo
+- Fixing healthcheck problems `(0ce3c682)` — Ahmad(Kia) Minoo
+- Upgrade packages `(fe62ba49)` — Ahmad(Kia) Minoo
+- Fixing endpoints `(1a383423)` — Ahmad(Kia) Minoo
+- Restructuring project `(608e10a3)` — Ahmad(Kia) Minoo
+- Formats and corses `(f3fe0bb6)` — Ahmad(Kia) Minoo
+- Implementing retention mechanism for snapshot storages `(99d26fef)` — Ahmad(Kia) Minoo
+- Set snapshot for resources and network channel `(dec71870)` — Ahmad(Kia) Minoo
+- Managing snapshots `(f5823eca)` — Ahmad(Kia) Minoo
+- Implementing network monitoring `(30daf0ed)` — Ahmad(Kia) Minoo
+- Implementing stream logging channel `(ed9bf3ec)` — Ahmad(Kia) Minoo
+- Implementing system monitoring and fixing channels health checks `(ec9a94b3)` — Ahmad(Kia) Minoo
+- Metrics `(287147b9)` — Ahmad(Kia) Minoo
+- Packages upgrades `(fdaab34b)` — Ahmad(Kia) Minoo
+- Implementing api versioning `(71827201)` — Ahmad(Kia) Minoo
+- Add forget password `(d240e5b7)` — Ahmad(Kia) Minoo
+- Upgrading nuget packages `(4e094871)` — Ahmad(Kia) Minoo
+- Implementing encryption `(044a55ea)` — Ahmad(Kia) Minoo
+- Upgrading nuget packages `(06d1eb59)` — Ahmad(Kia) Minoo
+- Implementing rsa encryption `(2f7586d9)` — Ahmad(Kia) Minoo
+- Adding udp provider and feeder `(d126d229)` — Ahmad(Kia) Minoo
+- Removing web transport on client `(f198d7be)` — Ahmad(Kia) Minoo
+- Implementing quic `(5561507d)` — Ahmad(Kia) Minoo
+- Implementing infinite data stream client `(dd3f270e)` — Ahmad(Kia) Minoo
+- Finalizing client state management `(f62b1a5a)` — Ahmad(Kia) Minoo
+- Solving docket build problems `(c483dc3f)` — Ahmad(Kia) Minoo
+- Upgrading packages `(f2ed6138)` — Ahmad(Kia) Minoo
+- Implementing dotnet client `(d6815eb6)` — Ahmad(Kia) Minoo
+- Implementing .net client `(993c87c3)` — Ahmad(Kia) Minoo
+- Implementing clients `(5559ffcb)` — Ahmad(Kia) Minoo
+- Optimizing snapshot handler `(e28965e2)` — Ahmad(Kia) Minoo
+- Add dynamic feeders on websocket and tcpsocket `(4c37d734)` — Ahmad(Kia) Minoo
+- Add more serializers `(d31210a5)` — Ahmad(Kia) Minoo
+- Implementing more serializations for the providers and feeders `(c7313b61)` — Ahmad(Kia) Minoo
+- Implementing socket providers `(a7dddad7)` — Ahmad(Kia) Minoo
+- Adding some endpoints `(ee3f202d)` — Ahmad(Kia) Minoo
+- Implementing health checks for channels, feeders and connections `(68dd92b6)` — Ahmad(Kia) Minoo
+- Implementing dynamic channels `(55495d96)` — Ahmad(Kia) Minoo
+- Adding route data into response contexts `(1bb0f7ff)` — Ahmad(Kia) Minoo
+- Add Telemetry on some methods `(3e9eba58)` — Ahmad(Kia) Minoo
+- Websocket load test `(061410d1)` — Ahmad(Kia) Minoo
+- Implementing load tests `(8e9a9209)` — Ahmad(Kia) Minoo
+- Improvement on message formatting `(ebed389d)` — Ahmad(Kia) Minoo
+- Packages upgrades `(199a8f1f)` — Ahmad(Kia) Minoo
+- Adding chained logging `(aeaeb92a)` — Ahmad(Kia) Minoo
+- Changing on tic tac toe game `(d6c3067d)` — Ahmad(Kia) Minoo
+- Packages upgrades `(89200b83)` — Ahmad(Kia) Minoo
+- Lots of performance and structure changes `(1b3d5cd2)` — Ahmad(Kia) Minoo
+- Adding changes on subscriptionId and pushed messages formats `(5cb844bd)` — Ahmad(Kia) Minoo
+- Implementing ssl `(afb3b2ad)` — Ahmad(Kia) Minoo
+- Implementing protocols `(acf1b2e9)` — Ahmad(Kia) Minoo
+- Implementing health checks and IDS subscription support `(84f9fd05)` — Ahmad(Kia) Minoo
+- Adding web db services and required services `(652f0013)` — Ahmad(Kia) Minoo
+- Changing snapshot projects structure and implement bombing tests basics `(85ec3474)` — Ahmad(Kia) Minoo
+- Snapshot managment on redis and mongo `(583871f4)` — Ahmad(Kia) Minoo
+- Fixing memorysnapshot and implementing full or modified strategy `(7a48f93f)` — Ahmad(Kia) Minoo
+- Fixing docker problems `(ec4b46e8)` — Ahmad(Kia) Minoo
+- Dockerizing `(d89deed6)` — Ahmad(Kia) Minoo
+- Packages upgrading `(f5ce7bb0)` — Ahmad(Kia) Minoo
+- UPgrading project to .net 8 `(29fd1ae2)` — Ahmad(Kia) Minoo
+- Doing some refactors `(407a640f)` — Ahmad(Kia) Minoo
+- Fixing startup problems `(15370d65)` — Ahmad(Kia) Minoo
+- Adding serilog to application `(5e6621fd)` — Ahmad(Kia) Minoo
+- Testing web application `(6770a2d6)` — Ahmad(Kia) Minoo
+- Adding Dockerfile `(a22f7ff0)` — Ahmad(Kia) Minoo
+- Adding extensions to program services `(f22330f0)` — Ahmad(Kia) Minoo
+- Packages upgrades `(3f4f03a3)` — Ahmad(Kia) Minoo
+- Adding snapshots to web application `(166b7db0)` — Ahmad(Kia) Minoo
+- Adding mongo snapshot and web layers `(e631a82d)` — Ahmad(Kia) Minoo
+- Implementing domain layer for web portal `(a4426cab)` — Ahmad(Kia) Minoo
+- Implementing scylla snapshot `(99dcb3f3)` — Ahmad(Kia) Minoo
+- Set json serializer configurations `(cddb6675)` — Ahmad(Kia) Minoo
+- Snapshot managers `(f3975d8d)` — Ahmad(Kia) Minoo
+- Structural changes `(fb7f2dc6)` — Ahmad(Kia) Minoo
+- Replacing Yaml serialization with Json `(90d01ccc)` — Ahmad(Kia) Minoo
+- Implementing authentication and authorization on channels `(4af2d654)` — Ahmad(Kia) Minoo
+- Changing on the subscription request models `(0f77cd0d)` — Ahmad(Kia) Minoo
+- Adding yaml serialization on requests and responses `(5e0d2b49)` — Ahmad(Kia) Minoo
+- Add WebApiProvider for DotNet `(2678b374)` — Ahmad(Kia) Minoo
+- Add RedisPubSubProvider for DotNet `(056855cd)` — Ahmad(Kia) Minoo
+- Add RabbitMQProvider for DotNet `(75eff3ac)` — Ahmad(Kia) Minoo
+- Add ActiveMQProvider for DotNet `(db586091)` — Ahmad(Kia) Minoo
+- Add KafkaProvider for DotNet `(8c2d1102)` — Ahmad(Kia) Minoo
+- Some structural changes `(65610f09)` — Ahmad(Kia) Minoo
+- Implementing RedisPubSub `(6435b0a7)` — Ahmad(Kia) Minoo
+- RS-10: Server Description in Configuration `(c006b913)` — Ahmad(Kia) Minoo
+- Including the folders for clients and providers `(ee4199ab)` — Ahmad(Kia) Minoo
+- RS-8: Read Server Configuration From File `(42eb0480)` — Ahmad(Kia) Minoo
+- Implement demo stock channel `(d18b4761)` — Ahmad(Kia) Minoo
+- Adding stock demo channel `(59433cd6)` — Ahmad(Kia) Minoo
+- Add RapidStreamer web `(82c5a637)` — Ahmad(Kia) Minoo
+- Refactoring Channels and ChannelManager `(8d32fd64)` — Ahmad(Kia) Minoo
+- Implement RedisSnapshot `(8e3bcad8)` — Ahmad(Kia) Minoo
+- Testing the lock mechanisms `(9eec36d1)` — Ahmad(Kia) Minoo
+- Implementing MemorySnapshot `(23fdc641)` — Ahmad(Kia) Minoo
+- Implementing WebApi feeder `(5847f778)` — Ahmad(Kia) Minoo
+- Supporting serializations for the kafka values `(51d76132)` — Ahmad(Kia) Minoo
+- Implementing ActiveMQ feeder `(5d0ee4e4)` — Ahmad(Kia) Minoo
+- #2: Remove any Association with any organization or entity like ALO or NBS `(37069c04)` — Ahmad(Kia) Minoo
+
+### ⚙️ CI / Tooling
+- Fixing health checks `(24162de9)` — Ahmad(Kia) Minoo
+- Disable workflows `(d4e696a9)` — Ahmad(Kia) Minoo
+- Nuget.config `(7a103bda)` — Ahmad(Kia) Minoo
+- Update pack-and-push.yml `(111074ef)` — Kiarash Minoo
+- Fixing github actions builder `(476c31e0)` — Kiarash Minoo
+- Some changes on deployment `(31dffe8a)` — Kiarash Minoo
+- Pack all instead `(b43dee3e)` — Kiarash Minoo
+- Update pack-and-push.yml `(e25479a7)` — Kiarash Minoo
+- Update pack-and-push.yml `(8e8b994e)` — Kiarash Minoo
+- Update pack-and-push.yml `(84bd67a3)` — Kiarash Minoo
+- Some performance improvment `(ae855ccb)` — Kiarash Minoo
+- Add client type `(cdea020f)` — Kiarash Minoo
+- Market depth problem solving `(9a16c3fe)` — Kiarash Minoo
+- Adding market depth `(6e47983d)` — Kiarash Minoo
+- Update docker-image.yml `(13ca92d4)` — Kiarash Minoo
+- Update docker-image.yml `(dd40e20b)` — Kiarash Minoo
+- Update docker-image.yml `(c49cf049)` — Kiarash Minoo
+- Update docker-image.yml `(5dec1511)` — Kiarash Minoo
+- Update docker-image.yml `(6a41f74d)` — Kiarash Minoo
+- Update docker-image.yml `(ff4a7e4f)` — Kiarash Minoo
+- Create docker-image.yml `(51e62c3a)` — Kiarash Minoo
+- Watchlist `(1dc236d8)` — Ahmad(Kia) Minoo
+- Configuring devops configurations `(d1d2f5cb)` — Ahmad(Kia) Minoo
+- Fixing postgresql subscription `(61cd4c6e)` — Ahmad(Kia) Minoo
+- Fixing postgresql snapshot handler `(9aca166f)` — Ahmad(Kia) Minoo
+- Add locking on snapshot handlers `(9f89a1d1)` — Ahmad(Kia) Minoo
+- Fixing peak connection `(cf91a20f)` — Ahmad(Kia) Minoo
+- Requests healthcheck `(4d59bdd4)` — Ahmad(Kia) Minoo
+- Fixing camel casing on jsons `(c3f1c266)` — Ahmad(Kia) Minoo
+- Fixing health checks `(05bd3a66)` — Ahmad(Kia) Minoo
+- Adding prometheus & grafana `(4b256268)` — Ahmad(Kia) Minoo
+- Problem solving of feeders `(ca7ae07e)` — Ahmad(Kia) Minoo
+- Adding volume for fs channels `(fd3c47f3)` — Ahmad(Kia) Minoo
+- Some changes on snapshot and messages `(9746af26)` — Ahmad(Kia) Minoo
+- Otlp changes `(5e3cc9b1)` — Ahmad(Kia) Minoo
+- Doing some changes `(09f758fb)` — Ahmad(Kia) Minoo
+- Remove ignored files `(0dd3b156)` — Ahmad(Kia) Minoo
+- Set docker environment to Development `(9b0965ee)` — Ahmad(Kia) Minoo
+- Updated docker-compose.yml `(6ed811f6)` — Amin QURJILI
+- Updated docker-compose.yml `(21260874)` — Amin QURJILI
+- Updated docker-compose.yml `(28abc7c2)` — Amin QURJILI
+- Updated docker-compose.yml `(e2e4e208)` — Amin QURJILI
+- Updated docker-compose.yml `(eff767af)` — Amin QURJILI
+- Updated docker-compose.yml `(7ac0a30c)` — Amin QURJILI
+- Updated docker-compose.yml `(f2b504f6)` — Amin QURJILI
+- Updated docker-compose.yml `(de6a3298)` — Amin QURJILI
+- Updated docker-compose.yml `(7ebc75f9)` — Amin QURJILI
+- Updated docker-compose.yml `(9816aa86)` — Amin QURJILI
+- Updated docker-compose.yml `(81b818b2)` — Amin QURJILI
+- Fixing passed ports of docker compose `(4ff949b0)` — Ahmad(Kia) Minoo
+- Fixing subscribers search bugs `(c1a8fdea)` — Ahmad(Kia) Minoo
+
+### 📝 Documentation
+- Add documentation for Receivers Pipelines, including Authorization, PingPong, RequestMetadata, Subscribe, and Unsubscribe pipelines `(b03f865a)` — Kiarash Minoo
+- README.md `(633ce802)` — Ahmad(Kia) Minoo
+
+### 🧪 Tests
+- Some changes on load tests `(6915bc9a)` — Ahmad(Kia) Minoo
+- Fixing publish problem `(43bcdb25)` — Ahmad(Kia) Minoo
+- Adding state to tests `(3b22d4fd)` — Ahmad(Kia) Minoo
+- Refining load tests `(c5e664a2)` — Ahmad(Kia) Minoo
+- Fixing test cases problems `(fb65c3ce)` — Ahmad(Kia) Minoo
+
+### 🏠 Chores
+- Update repository URL in Directory.Build.props `(68ca0b08)` — Kiarash Minoo
+- Update BuildingBlocksVersion to 1.0.129-beta.19 `(9ee4f654)` — Kiarash Minoo
+- Update BuildingBlocksVersion to 1.0.129-beta.18 and add Microsoft.Extensions package references for net8.0, net9.0, and net10.0 `(e3d2f4e7)` — Kiarash Minoo
+

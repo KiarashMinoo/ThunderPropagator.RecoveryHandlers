@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Npgsql" />
+    <PackageReference Include="Pluralize.NET.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThunderPropagator.RecoveryHandler.SharedKernel\ThunderPropagator.RecoveryHandler.SharedKernel.csproj" />
+  </ItemGroup>
+</Project>

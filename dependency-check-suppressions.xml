@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    FALSE POSITIVES — wrong CPE / wrong ecosystem
+    ════════════════════════════════════════════════════════════════════
+  -->
+
+  <!--
+    CVE-2023-0440 — healthchecks.io (github.com/healthchecks/healthchecks)
+    is a Django-based cron-job monitoring web app; it is wholly unrelated to
+    Microsoft.Extensions.Diagnostics.HealthChecks. The OWASP scanner
+    incorrectly matches CPE cpe:2.3:a:healthchecks:healthchecks against the
+    Microsoft package based on the shared word "healthchecks".
+  -->
+  <suppress>
+    <notes><![CDATA[
+      FALSE POSITIVE: CVE-2023-0440 affects healthchecks.io
+      (https://github.com/healthchecks/healthchecks), not
+      Microsoft.Extensions.Diagnostics.HealthChecks. The NuGet package is
+      a Microsoft .NET library; it shares no code with the Django web app.
+      Suppressed pending NVD CPE correction.
+    ]]></notes>
+    <packageUrl regex="true">^pkg:nuget/Microsoft\.Extensions\.Diagnostics\.HealthChecks@.*$</packageUrl>
+    <cve>CVE-2023-0440</cve>
+  </suppress>
+
+  <!--
+    CVE-2026-39882 / CVE-2026-39883 — both CVEs describe vulnerabilities in
+    OpenTelemetry-Go (github.com/open-telemetry/opentelemetry-go ≥ 1.15.0,
+    fixed in 1.43.0). The OWASP scanner matched them against the .NET NuGet
+    package OpenTelemetry.Api because its version number (1.15.x/1.16.x)
+    overlaps the Go module version range. The two projects share a name and
+    a version scheme but have entirely separate codebases.
+  -->
+  <suppress>
+    <notes><![CDATA[
+      FALSE POSITIVE: CVE-2026-39882 is a PATH hijacking vulnerability in
+      OpenTelemetry-Go (kenv command, BSD/Solaris only), fixed in Go module
+      v1.43.0. OpenTelemetry.Api is the .NET NuGet package; it contains no
+      Go code and is not affected.
+    ]]></notes>
+    <packageUrl regex="true">^pkg:nuget/OpenTelemetry\.Api@.*$</packageUrl>
+    <cve>CVE-2026-39882</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+      FALSE POSITIVE: CVE-2026-39883 is a memory-exhaustion vulnerability in
+      the OpenTelemetry-Go OTLP HTTP exporters (unbounded response buffer),
+      fixed in Go module v1.43.0. OpenTelemetry.Api is the .NET NuGet
+      package; it contains no Go code and is not affected.
+    ]]></notes>
+    <packageUrl regex="true">^pkg:nuget/OpenTelemetry\.Api@.*$</packageUrl>
+    <cve>CVE-2026-39883</cve>
+  </suppress>
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    UPSTREAM — OpenSSL CVEs in the LicenseManager native library
+    ════════════════════════════════════════════════════════════════════
+    The libcrypto-3-{arch}.dll files under
+      src/ThunderPropagator.Application/runtimes/*/native/
+    are distributed as part of the ThunderPropagator LicenseManager native
+    library (v2026.Q2.217). They cannot be patched independently; remediation
+    requires recompiling the LicenseManager against a patched OpenSSL build.
+    All CVEs below are tracked for resolution in the next LicenseManager
+    release. Each suppression includes the CVSSv3 base score and a brief
+    description to support future triage.
+  -->
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-11187 (OpenSSL 3.x): TLS certificate verification
+      bypass via unchecked return value. Requires LicenseManager native lib
+      update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-11187</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-15467 (OpenSSL 3.x): Low severity issue in the
+      OpenSSL BIO_f_linebuffer newline handling. Only affects applications
+      using BIO_f_linebuffer with attacker-controlled data. Requires
+      LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-15467</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-15468 (OpenSSL 3.x): Low severity OCB cipher
+      hardware-accelerated build issue. Only affects applications calling
+      CRYPTO_ocb128_encrypt/decrypt directly with non-block-aligned lengths.
+      TLS does not use OCB cipher suites. Requires LicenseManager native
+      lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-15468</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-15469 (OpenSSL 3.x): Low severity QUIC
+      implementation issue. Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-15469</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-66199 (OpenSSL 3.x): Denial-of-service via
+      malformed TimeStamp Response. Low severity; TS protocol is not
+      widely deployed. Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-66199</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-68160 (OpenSSL 3.x): Denial-of-service via
+      malformed PKCS#7 signed data. Only exploitable if the application
+      verifies untrusted PKCS#7. Requires LicenseManager native lib
+      update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-68160</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-69418 (OpenSSL 3.x): Heap buffer overflow via
+      CMS/PKCS#7 with AEAD ciphers. Only affects applications parsing
+      untrusted CMS/PKCS#7 content using AEAD. Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-69418</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-69419 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-69419</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-69420 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-69420</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2025-69421 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2025-69421</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-22795 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-22795</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-22796 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-22796</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-24051 (OpenSSL 3.x): PATH hijacking via Darwin
+      ioreg command (macOS-only). Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-24051</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-2673 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-2673</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-28386 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-28386</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-28387 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-28387</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-28388 (OpenSSL 3.x): ML-DSA key generation issue.
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-28388</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-28389 (OpenSSL 3.x): Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-28389</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-28390 (OpenSSL 3.x): TLS group negotiation defect
+      causing HRR not to be sent. Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-28390</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-31789 (OpenSSL 3.x, CRITICAL on 32-bit): Heap
+      buffer overflow in OCTET STRING hex conversion triggered by oversized
+      X.509 certificates (>1 GB). Only affects 32-bit platforms; this
+      project targets x64/arm64. Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-31789</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-31790 (OpenSSL 3.x): Key derivation buffer
+      overflow. Requires LicenseManager native lib update (currently
+      v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-31790</cve>
+  </suppress>
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    UPSTREAM — OpenSSL CVEs added 2026-06-16 OWASP scan
+    ════════════════════════════════════════════════════════════════════
+  -->
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-34180 (OpenSSL 3.x, CVSS 3.6 Low): Out-of-bounds
+      read (CWE-125). Requires LicenseManager native lib update (currently
+      v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-34180</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-34181 (OpenSSL 3.x): Improper validation of
+      integrity check value (CWE-354). Requires LicenseManager native lib
+      update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-34181</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-34182 (OpenSSL 3.x): Improper validation of
+      integrity check value — AES-256-OFB downgrade / CBC-to-OFB attack
+      (CWE-354). Requires LicenseManager native lib update (currently
+      v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-34182</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-34183 (OpenSSL 3.x): Improperly controlled
+      sequential memory allocation in DH q subgroup processing (CWE-1325).
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-34183</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-35188 (OpenSSL 3.x): Double free in QUIC
+      implementation when address validation is disabled (CWE-415).
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-35188</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42764 (OpenSSL 3.x, CVSS 3.6): NULL pointer
+      dereference in OCSP with partial certificate chain (CWE-476).
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42764</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42765 (OpenSSL 3.x, Low): NULL pointer dereference
+      affecting 64-bit Unix only (CWE-476). Does not affect Windows targets.
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42765</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42766 (OpenSSL 3.x): NULL pointer dereference
+      (CWE-476). Requires LicenseManager native lib update (currently
+      v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42766</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42767 (OpenSSL 3.x, CVSS 3.4 Low): NULL pointer
+      dereference (CWE-476). Requires LicenseManager native lib update
+      (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42767</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42768 (OpenSSL 3.x): Covert channel via PKCS7
+      decryption recipient key oracle (CWE-514). Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42768</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42769 (OpenSSL 3.x): Improper certificate
+      validation — CA newWithOld certificate handling (CWE-295). Requires
+      LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42769</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-42770 (OpenSSL 3.x): Missing cryptographic step —
+      X9.42 DH peer q value not validated (CWE-325). Requires LicenseManager
+      native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-42770</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-45445 (OpenSSL 3.x): Missing cryptographic step —
+      AES-256-OFB authentication tag forgery (CWE-325). Requires
+      LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-45445</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-45446 (OpenSSL 3.x): Missing cryptographic step —
+      EVP_DecryptFinal_ex AEAD authentication tag bypass (CWE-325). Requires
+      LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-45446</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-45447 (OpenSSL 3.x): Use after free in
+      PKCS7_verify() — potential RCE via malicious BIO (CWE-416). Requires
+      LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-45447</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-7383 (OpenSSL 3.x, Low): Out-of-bounds write in
+      ASN1 mbstring processing (CWE-787); only triggered by input of ~512 MB
+      or larger. Requires LicenseManager native lib update (currently
+      v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-7383</cve>
+  </suppress>
+
+  <suppress>
+    <notes><![CDATA[
+      UPSTREAM — CVE-2026-9076 (OpenSSL 3.x): Out-of-bounds read (CWE-125).
+      Requires LicenseManager native lib update (currently v2026.Q2.217).
+    ]]></notes>
+    <filePath regex="true">.*[\\/]libcrypto-3.*\.dll$</filePath>
+    <cve>CVE-2026-9076</cve>
+  </suppress>
+
+</suppressions>

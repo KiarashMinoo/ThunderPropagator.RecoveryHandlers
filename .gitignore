@@ -1,0 +1,207 @@
+# ThunderPropagator .gitignore
+#
+# Keep repository source, documentation, shared build configuration, and packaged
+# runtime assets tracked. Ignore only local machine state, generated output,
+# caches, logs, and disposable development data.
+
+# ---------------------------------------------------------------------------
+# Operating system files
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------------------
+# Editor and IDE state
+# ---------------------------------------------------------------------------
+.vs/
+.vscode/
+.idea/
+.fleet/
+.cr/
+
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.iml
+*.userprefs
+*.DotSettings.user
+
+*.swp
+*.swo
+*~
+~$*
+
+# ---------------------------------------------------------------------------
+# Local agent and analysis tooling
+# ---------------------------------------------------------------------------
+.claude/
+.code-review-graph/
+.shared-props/
+.obsidian/
+.agents/
+
+graphify-out/
+.graphify*
+
+# ---------------------------------------------------------------------------
+# .NET build output
+# ---------------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Bb]uild/
+[Oo]ut/
+bld/
+artifacts/
+
+x64/
+x86/
+ARM/
+ARM64/
+
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+
+# Keep committed source-level launch settings and shared solution settings.
+!launchSettings.json
+!**/Properties/launchSettings.json
+!*.sln.DotSettings
+
+# ---------------------------------------------------------------------------
+# Test, coverage, and profiling output
+# ---------------------------------------------------------------------------
+[Tt]est[Rr]esult*/
+TestResults/
+TestResult.xml
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage-*/
+*.opencover.xml
+*.cobertura.xml
+
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ---------------------------------------------------------------------------
+# NuGet and package artifacts
+# ---------------------------------------------------------------------------
+*.nupkg
+*.snupkg
+nupkg/
+packages/
+!**/packages/build/
+
+# ---------------------------------------------------------------------------
+# Logs, diagnostics, and temporary files
+# ---------------------------------------------------------------------------
+*.log
+*.binlog
+msbuild.log
+msbuild.err
+msbuild.wrn
+[Ll]og/
+[Ll]ogs/
+
+*.tmp
+*.temp
+*.pid
+*.svclog
+
+# ---------------------------------------------------------------------------
+# Native/compiler intermediates
+# ---------------------------------------------------------------------------
+*.aps
+*.cachefile
+*.dbmdl
+*.iobj
+*.ipdb
+*.ilk
+*.lastbuildstate
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tli
+*.tlh
+*.tlb
+
+ipch/
+
+# Do not hide checked-in native runtime libraries.
+!src/**/runtimes/**/native/*.dll
+!src/**/runtimes/**/native/*.dll.a
+!src/**/runtimes/**/native/*.dylib
+!src/**/runtimes/**/native/*.exp
+!src/**/runtimes/**/native/*.lib
+!src/**/runtimes/**/native/*.so
+!src/**/runtimes/**/native/*.so.*
+
+# ---------------------------------------------------------------------------
+# Publish and deployment output
+# ---------------------------------------------------------------------------
+publish/
+PublishScripts/
+AppPackages/
+BundleArtifacts/
+*.publishproj
+*.[Pp]ublish.xml
+*.pubxml
+*.azurePubxml
+*.publishsettings
+
+# ---------------------------------------------------------------------------
+# Local runtime data and service volumes
+# ---------------------------------------------------------------------------
+[Vv]olumes/
+data/
+mongo_data/
+mongo_data_web/
+redis_data/
+
+# ---------------------------------------------------------------------------
+# Local secrets and environment overrides
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pfx
+*.key
+*.pem
+
+# ---------------------------------------------------------------------------
+# Optional frontend/tooling caches
+# ---------------------------------------------------------------------------
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.parcel-cache/
+.vite/
+dist/
+
+# ---------------------------------------------------------------------------
+# Python helper caches
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
