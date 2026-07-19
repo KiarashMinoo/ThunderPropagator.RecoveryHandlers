@@ -1,5 +1,5 @@
-## [1.0.0-beta.5] — 2026-07-19
+## [1.0.0-beta.6] — 2026-07-19
 
 ### 🐛 Bug Fixes
 
-- harden recovery storage resource handling `(56fa5df)` — Kiarash Minoo
+- add ARM64 platform support to recovery handler project `(9ba6d79)` — Kiarash Minoo

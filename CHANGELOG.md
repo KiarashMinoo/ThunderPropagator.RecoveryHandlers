@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.6] — 2026-07-19
+
+### 🐛 Bug Fixes
+
+- add ARM64 platform support to recovery handler project `(9ba6d79)` — Kiarash Minoo
+
 ## [1.0.0-beta.5] — 2026-07-19
 
 ### 🐛 Bug Fixes
