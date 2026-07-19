@@ -1,5 +1,5 @@
-## [1.0.0-beta.4] — 2026-07-19
+## [1.0.0-beta.5] — 2026-07-19
 
-### 📝 Documentation
+### 🐛 Bug Fixes
 
-- rebuild recovery handler documentation `(2a1bc87)` — Kiarash Minoo
+- harden recovery storage resource handling `(56fa5df)` — Kiarash Minoo
