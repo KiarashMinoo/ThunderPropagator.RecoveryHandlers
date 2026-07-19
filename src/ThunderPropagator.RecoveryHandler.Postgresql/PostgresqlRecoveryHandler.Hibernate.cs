@@ -41,7 +41,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
                     cancellationToken: cancellationToken));
 
                 await HibernateSnapshotEntryItemsAsync(snapshotEntry.HashKey, snapshotEntry.Snapshot, connection, transaction, cancellationToken);
-            }, "Snapshot hibernation has failed.", cancellationToken);
+            }, Log.HibernateFailed, cancellationToken);
         }
 
         protected override async Task InternalHibernateAsync(int hashKey, IReadOnlyDictionary<string, object?> snapshot, CancellationToken cancellationToken = default)
@@ -61,7 +61,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
                     cancellationToken: cancellationToken));
 
                 await HibernateSnapshotEntryItemsAsync(hashKey, snapshot, connection, transaction, cancellationToken);
-            }, "Snapshot hibernation has failed.", cancellationToken);
+            }, Log.HibernateFailed, cancellationToken);
         }
     }
 }

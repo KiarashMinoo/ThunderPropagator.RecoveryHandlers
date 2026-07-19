@@ -1,4 +1,5 @@
 using Ardalis.GuardClauses;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
@@ -15,32 +16,60 @@ namespace ThunderPropagator.RecoveryHandler.MongoDb
 #endif
         partial class MongoDbRecoveryHandler : AbstractRecoveryHandler
     {
+        // Guards the check-then-act on BsonClassMap (a static, process-wide MongoDB.Bson registry)
+        // so two handlers constructed concurrently on different threads can't both observe
+        // "not yet registered" and both call RegisterClassMap — the second call throws
+        // BsonSerializationException. Double-checked locking keeps the fast path lock-free after
+        // the first registration, and the registration itself still runs as an instance method
+        // (not a static field initializer) because MapCreator below calls SetSnapshotEntry, which
+        // this class inherits as an instance member from AbstractRecoveryHandler.
+        private static readonly object _classMapRegistrationLock = new();
+        private static volatile bool _classMapRegistered;
+
         private readonly MongoUrl _mongoUrl;
         private readonly MongoClient _mongoClient;
         private readonly IMongoCollection<SnapshotEntry> _collection;
 
         public MongoDbRecoveryHandler(IServiceProvider serviceProvider, IChannel channel) : base(serviceProvider, channel)
         {
-            if (!BsonClassMap.IsClassMapRegistered(typeof(SnapshotEntry)))
-            {
-                BsonClassMap.RegisterClassMap<SnapshotEntry>(options =>
-                {
-                    options.AutoMap();
-                    options.SetIgnoreExtraElements(true);
+            EnsureSnapshotEntryClassMapRegistered();
 
-                    options.MapCreator(snapshotEntry => SetSnapshotEntry(snapshotEntry.HashKey, snapshotEntry.Keys, snapshotEntry.CastType, snapshotEntry.Snapshot));
-                    options.MapIdField(snapshotEntry => snapshotEntry.HashKey);
-                    options.MapMember(snapshotEntry => snapshotEntry.Keys);
-                    options.MapMember(snapshotEntry => snapshotEntry.CastType);
-                    options.MapMember(snapshotEntry => snapshotEntry.State);
-                    options.MapMember(snapshotEntry => snapshotEntry.LastFetchDateTime);
-                    options.MapMember(snapshotEntry => snapshotEntry.Snapshot);
-                });
-            }
-
-            _mongoUrl = MongoUrl.Create(Guard.Against.NullOrWhiteSpace(channel.Metadata.Snapshot.ConnectionString));
-            _mongoClient = new MongoClient(_mongoUrl);
+            var connectionString = Guard.Against.NullOrWhiteSpace(channel.Metadata.Snapshot.ConnectionString);
+            _mongoUrl = MongoUrl.Create(connectionString);
+            // Shared client (see MongoClientCache) — never owned or disposed by this handler.
+            _mongoClient = serviceProvider.GetRequiredService<MongoClientCache>().GetOrCreate(connectionString);
             _collection = _mongoClient.GetDatabase(_mongoUrl.DatabaseName).GetCollection<SnapshotEntry>(channel.Metadata.ChannelName);
+        }
+
+        private void EnsureSnapshotEntryClassMapRegistered()
+        {
+            if (_classMapRegistered)
+                return;
+
+            lock (_classMapRegistrationLock)
+            {
+                if (_classMapRegistered)
+                    return;
+
+                if (!BsonClassMap.IsClassMapRegistered(typeof(SnapshotEntry)))
+                {
+                    BsonClassMap.RegisterClassMap<SnapshotEntry>(options =>
+                    {
+                        options.AutoMap();
+                        options.SetIgnoreExtraElements(true);
+
+                        options.MapCreator(snapshotEntry => SetSnapshotEntry(snapshotEntry.HashKey, snapshotEntry.Keys, snapshotEntry.CastType, snapshotEntry.Snapshot));
+                        options.MapIdField(snapshotEntry => snapshotEntry.HashKey);
+                        options.MapMember(snapshotEntry => snapshotEntry.Keys);
+                        options.MapMember(snapshotEntry => snapshotEntry.CastType);
+                        options.MapMember(snapshotEntry => snapshotEntry.State);
+                        options.MapMember(snapshotEntry => snapshotEntry.LastFetchDateTime);
+                        options.MapMember(snapshotEntry => snapshotEntry.Snapshot);
+                    });
+                }
+
+                _classMapRegistered = true;
+            }
         }
 
         protected override async Task InternalBackupAsync(CancellationToken cancellationToken = default)

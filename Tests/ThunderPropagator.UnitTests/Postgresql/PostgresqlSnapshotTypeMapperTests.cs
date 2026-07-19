@@ -1,3 +1,4 @@
+using System.Globalization;
 using FluentAssertions;
 using ThunderPropagator.RecoveryHandler.Postgresql;
 
@@ -94,5 +95,55 @@ public class PostgresqlSnapshotTypeMapperTests
 
         // Assert
         result.Should().Be(expected);
+    }
+
+    public static TheoryData<object?> CultureSensitiveValues => new()
+    {
+        1.5F,
+        1.5D,
+        1.5M,
+        new DateTime(2026, 7, 19, 12, 30, 0, DateTimeKind.Unspecified),
+    };
+
+    [Theory]
+    [MemberData(nameof(CultureSensitiveValues))]
+    public void SerializeThenDeserialize_FloatingPointAndDateValues_RoundTripUnderNonInvariantCulture(object value)
+    {
+        // Arrange — de-DE uses a comma as the decimal separator; if Serialize/Deserialize ever
+        // used the current culture instead of CultureInfo.InvariantCulture, this value would
+        // either serialize with a comma (corrupting anything reading it back under a
+        // dot-decimal culture) or fail to parse back at all.
+        var originalCulture = CultureInfo.CurrentCulture;
+        CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("de-DE");
+
+        try
+        {
+            // Act
+            var (type, serialized) = PostgresqlSnapshotTypeMapper.Serialize(value);
+            var roundTripped = PostgresqlSnapshotTypeMapper.Deserialize(type, serialized!);
+
+            // Assert
+            serialized.Should().NotContain(",",
+                "the serialized form must use invariant (dot) separators regardless of CurrentCulture");
+            roundTripped.Should().Be(value);
+        }
+        finally
+        {
+            CultureInfo.CurrentCulture = originalCulture;
+        }
+    }
+
+    [Fact]
+    public void Deserialize_UnresolvableType_ThrowsInvalidOperationExceptionNamingTheType()
+    {
+        // Arrange
+        const string unresolvableType = "ThunderPropagator.Tests.DoesNotExist, ThunderPropagator.Tests.MissingAssembly";
+
+        // Act
+        var act = () => PostgresqlSnapshotTypeMapper.Deserialize(unresolvableType, "{}");
+
+        // Assert
+        act.Should().Throw<InvalidOperationException>()
+            .WithMessage($"*{unresolvableType}*");
     }
 }

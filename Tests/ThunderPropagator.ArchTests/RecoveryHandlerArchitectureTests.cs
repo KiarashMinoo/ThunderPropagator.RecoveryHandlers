@@ -100,6 +100,12 @@ public class RecoveryHandlerArchitectureTests
         hasCycle.Should().BeFalse("recovery-handler project references must form an acyclic graph");
     }
 
+    // Note: path.Add/path.Remove are correctly balanced in every branch below — the early
+    // "if (!path.Add(assemblyName)) return true" only fires when this frame did NOT add the
+    // entry (it was already on the path from an ancestor call), so there is nothing for this
+    // frame to remove; the ancestor frame that owns the entry removes it. The try/finally below
+    // is defense-in-depth so a thrown exception mid-recursion (e.g. from GetReferencedAssemblies)
+    // can't leave a stale entry in `path` for a caller that reuses the same set.
     private static bool HasCycle(
         string assemblyName,
         IReadOnlyDictionary<string, Assembly> assemblies,
@@ -109,19 +115,20 @@ public class RecoveryHandlerArchitectureTests
         if (!path.Add(assemblyName))
             return true;
 
-        if (!visited.Add(assemblyName))
+        try
+        {
+            if (!visited.Add(assemblyName))
+                return false;
+
+            return assemblies[assemblyName]
+                .GetReferencedAssemblies()
+                .Select(reference => reference.Name)
+                .Where(reference => reference is not null && assemblies.ContainsKey(reference))
+                .Any(reference => HasCycle(reference!, assemblies, visited, path));
+        }
+        finally
         {
             path.Remove(assemblyName);
-            return false;
         }
-
-        var hasCycle = assemblies[assemblyName]
-            .GetReferencedAssemblies()
-            .Select(reference => reference.Name)
-            .Where(reference => reference is not null && assemblies.ContainsKey(reference))
-            .Any(reference => HasCycle(reference!, assemblies, visited, path));
-
-        path.Remove(assemblyName);
-        return hasCycle;
     }
 }

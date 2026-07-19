@@ -1,4 +1,6 @@
 using Ardalis.GuardClauses;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using ThunderPropagator.Application.Channels;
 using ThunderPropagator.Application.Channels.Snapshots;
@@ -11,56 +13,74 @@ namespace ThunderPropagator.RecoveryHandler.Redis
 #if !DEBUG
         sealed
 #endif
-        class RedisRecoveryHandler : AbstractRecoveryHandler
+        partial class RedisRecoveryHandler : AbstractRecoveryHandler
     {
         private readonly string _redisKey;
-        private readonly ConnectionMultiplexer _connectionMultiplexer;
-        private readonly IDatabase _redisDatabase;
+        private readonly string _connectionString;
+        private readonly RedisConnectionMultiplexerCache _multiplexerCache;
+        private IDatabase? _redisDatabase;
+
+        private IDatabase RedisDatabase => _redisDatabase
+            ?? throw new InvalidOperationException(
+                $"{nameof(RedisRecoveryHandler)} has not been initialized — IRecoveryHandler.Initialize must complete before Backup/Restore/Cleanup/Hibernate can run.");
 
         public RedisRecoveryHandler(IServiceProvider serviceProvider, IChannel channel) : base(serviceProvider, channel)
         {
             _redisKey = channel.Metadata.ChannelName;
-            _connectionMultiplexer = ConnectionMultiplexer.Connect(Guard.Against.NullOrWhiteSpace(channel.Metadata.Snapshot.ConnectionString));
-            _redisDatabase = _connectionMultiplexer.GetDatabase();
+            _connectionString = Guard.Against.NullOrWhiteSpace(channel.Metadata.Snapshot.ConnectionString);
+            _multiplexerCache = serviceProvider.GetRequiredService<RedisConnectionMultiplexerCache>();
+        }
+
+        protected override async Task InternalInitializeAsync(CancellationToken cancellationToken = default)
+        {
+            var multiplexer = await _multiplexerCache.GetOrCreateAsync(_connectionString, cancellationToken);
+            _redisDatabase = multiplexer.GetDatabase();
         }
 
         protected override async Task InternalBackupAsync(CancellationToken cancellationToken = default)
         {
             var snapshotEntries = await Channel.SearchSnapshotsAsync(snapshotEntry => snapshotEntry.State == SnapshotEntryState.Active, 0, 0, cancellationToken);
-            await _redisDatabase.HashSetAsync(_redisKey,
+            await RedisDatabase.HashSetAsync(_redisKey,
                 snapshotEntries.Select(snapshotEntry => new HashEntry(snapshotEntry.HashKey, snapshotEntry.ToNJson())).ToArray());
         }
 
-        protected override Task InternalRestoreAsync(CancellationToken cancellationToken = default)
+        protected override async Task InternalRestoreAsync(CancellationToken cancellationToken = default)
         {
-            foreach (var hashEntry in _redisDatabase.HashGetAll(_redisKey))
+            foreach (var hashEntry in await RedisDatabase.HashGetAllAsync(_redisKey))
             {
                 var snapshotEntry = hashEntry.Value.ToString().FromNJson<SnapshotEntry>();
                 if (snapshotEntry is not null && snapshotEntry.State == SnapshotEntryState.Active)
                     OverwriteSnapshot(snapshotEntry);
+                else if (snapshotEntry is null)
+                    Log.SnapshotDeserializationFailed(Logger, hashEntry.Name.ToString(), _redisKey);
             }
-
-            return Task.CompletedTask;
         }
 
         protected override async Task<SnapshotEntry?> InternalRestoreAsync(int hashKey, CancellationToken cancellationToken = default)
         {
-            var hashEntry = await _redisDatabase.HashGetAsync(_redisKey, hashKey);
-            return hashEntry.HasValue ? hashEntry.ToString().FromNJson<SnapshotEntry>() : null;
+            var hashEntry = await RedisDatabase.HashGetAsync(_redisKey, hashKey);
+            if (!hashEntry.HasValue)
+                return null;
+
+            var snapshotEntry = hashEntry.ToString().FromNJson<SnapshotEntry>();
+            if (snapshotEntry is null)
+                Log.SnapshotDeserializationFailed(Logger, hashKey.ToString(), _redisKey);
+
+            return snapshotEntry;
         }
 
         protected override Task InternalCleanupAsync(CancellationToken cancellationToken = default)
-            => _redisDatabase.KeyDeleteAsync(_redisKey);
+            => RedisDatabase.KeyDeleteAsync(_redisKey);
 
         protected override Task InternalCleanupAsync(int hashKey, CancellationToken cancellationToken = default)
-            => _redisDatabase.HashDeleteAsync(_redisKey, hashKey);
+            => RedisDatabase.HashDeleteAsync(_redisKey, hashKey);
 
         protected override Task InternalHibernateAsync(SnapshotEntry snapshotEntry, CancellationToken cancellationToken = default)
-            => _redisDatabase.HashSetAsync(_redisKey, snapshotEntry.HashKey, snapshotEntry.ToNJson());
+            => RedisDatabase.HashSetAsync(_redisKey, snapshotEntry.HashKey, snapshotEntry.ToNJson());
 
         protected override async Task InternalHibernateAsync(int hashKey, IReadOnlyDictionary<string, object?> snapshot, CancellationToken cancellationToken = default)
         {
-            var hashEntry = await _redisDatabase.HashGetAsync(_redisKey, hashKey);
+            var hashEntry = await RedisDatabase.HashGetAsync(_redisKey, hashKey);
             if (hashEntry.HasValue)
             {
                 var snapshotEntry = hashEntry.ToString().FromNJson<SnapshotEntry>();
@@ -69,12 +89,20 @@ namespace ThunderPropagator.RecoveryHandler.Redis
                     SetSnapshot(snapshotEntry, snapshotEntry.CastType, snapshot);
                     await InternalHibernateAsync(snapshotEntry, cancellationToken);
                 }
+                else
+                    Log.SnapshotDeserializationFailed(Logger, hashKey.ToString(), _redisKey);
             }
         }
 
-        protected override async ValueTask DisposeManagedResourcesAsync()
+        // Note: the underlying IConnectionMultiplexer is owned and disposed by
+        // RedisConnectionMultiplexerCache (shared across handlers), not by this instance —
+        // disposing it here would break every other channel sharing the same Redis server.
+
+        private static partial class Log
         {
-            await _connectionMultiplexer.DisposeAsync();
+            [LoggerMessage(EventId = 12001, Level = LogLevel.Warning,
+                Message = "Snapshot entry for hash field {HashKey} in Redis hash '{RedisKey}' could not be deserialized and was skipped.")]
+            public static partial void SnapshotDeserializationFailed(ILogger logger, string hashKey, string redisKey);
         }
     }
 }

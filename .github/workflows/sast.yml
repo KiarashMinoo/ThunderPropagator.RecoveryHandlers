@@ -4,9 +4,8 @@ on:
   push:
     branches: [develop]
   schedule:
-    # Weekly is plenty — SAST already runs on every push to develop, this is
-    # just a safety net for stale branches / newly-disclosed CVEs.
-    - cron: '0 3 * * 3'   # Wednesday 03:00 UTC
+    - cron: '0 0 * * *'   # 12:00 AM UTC daily
+    - cron: '0 12 * * *'  # 12:00 PM UTC daily
   workflow_dispatch:
     inputs:
       enable-codeql:

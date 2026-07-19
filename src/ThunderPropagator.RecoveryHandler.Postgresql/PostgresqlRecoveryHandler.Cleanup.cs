@@ -16,7 +16,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
                      """,
                     transaction: transaction,
                     cancellationToken: cancellationToken)),
-                "Cleaning up recovery table has failed.", cancellationToken);
+                Log.CleanupFailed, cancellationToken);
         }
 
         protected override async Task InternalCleanupAsync(int hashKey, CancellationToken cancellationToken = default)
@@ -31,7 +31,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
                     new { HashKey = hashKey },
                     transaction: transaction,
                     cancellationToken: cancellationToken)),
-                "Cleaning up recovery table has failed.", cancellationToken);
+                Log.CleanupFailed, cancellationToken);
         }
     }
 }

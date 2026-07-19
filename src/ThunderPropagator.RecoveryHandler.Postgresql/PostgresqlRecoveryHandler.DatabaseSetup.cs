@@ -1,4 +1,3 @@
-using System.Data;
 using System.Text.RegularExpressions;
 using Npgsql;
 using ThunderPropagator.Application.Channels.Snapshots;
@@ -22,9 +21,10 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
 
             builder.Database = "postgres";
             await using var connection = new NpgsqlConnection(builder.ConnectionString);
-
-            if (connection.State != ConnectionState.Open)
-                await connection.OpenAsync(cancellationToken);
+            // A freshly constructed NpgsqlConnection is always ConnectionState.Closed, so the
+            // previous "if (connection.State != ConnectionState.Open)" guard was always true and
+            // never skipped the call — removed as dead code.
+            await connection.OpenAsync(cancellationToken);
 
             await using var checkCmd = connection.CreateCommand();
             checkCmd.CommandText = "SELECT 1 FROM PG_CATALOG.PG_DATABASE WHERE DATNAME = @dbName";

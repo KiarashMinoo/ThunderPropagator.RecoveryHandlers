@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Ardalis.GuardClauses;
 using Microsoft.Extensions.Logging;
 using Npgsql;
 using Pluralize.NET.Core;
@@ -14,6 +15,11 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
 #endif
         partial class PostgresqlRecoveryHandler : AbstractRecoveryHandler
     {
+        // nameof(SnapshotEntry) is a compile-time constant, so its pluralized form never changes
+        // across instances — computed once instead of allocating a new Pluralizer() (which builds
+        // a large irregular-word dictionary) on every channel construction.
+        private static readonly string _snapshotEntryPlural = new Pluralizer().Pluralize(nameof(SnapshotEntry));
+
         private readonly string _schema;
         private readonly string _tableName;
         private readonly string _snapshotTableName;
@@ -35,8 +41,8 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
 
             _schema = nameof(Application.Channels.Snapshots);
             _tableName = channelName;
-            _snapshotTableName = $"{channelName}_{new Pluralizer().Pluralize(nameof(SnapshotEntry))}";
-            _connectionString = channel.Metadata.Snapshot.ConnectionString!;
+            _snapshotTableName = $"{channelName}_{_snapshotEntryPlural}";
+            _connectionString = Guard.Against.NullOrWhiteSpace(channel.Metadata.Snapshot.ConnectionString);
 
             _snapshotEntryUpsertQuery = $"""
                                          INSERT INTO "{_schema}"."{_tableName}"
@@ -92,7 +98,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
         private async Task ExecuteInTransactionAsync(
             NpgsqlConnection connection,
             Func<NpgsqlTransaction, Task> work,
-            string errorMessage,
+            Action<ILogger, Exception> logFailure,
             CancellationToken cancellationToken)
         {
             var transaction = await connection.BeginTransactionAsync(cancellationToken);
@@ -104,9 +110,20 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
             catch (Exception exception)
             {
                 await transaction.RollbackAsync(cancellationToken);
-                // Message template is a runtime variable — [LoggerMessage] requires a compile-time constant; intentionally kept as-is.
-                Logger.LogError(exception, errorMessage);
+                logFailure(Logger, exception);
             }
+        }
+
+        private static partial class Log
+        {
+            [LoggerMessage(EventId = 13001, Level = LogLevel.Error, Message = "Backing up recovery table has failed.")]
+            public static partial void BackupFailed(ILogger logger, Exception exception);
+
+            [LoggerMessage(EventId = 13002, Level = LogLevel.Error, Message = "Cleaning up recovery table has failed.")]
+            public static partial void CleanupFailed(ILogger logger, Exception exception);
+
+            [LoggerMessage(EventId = 13003, Level = LogLevel.Error, Message = "Snapshot hibernation has failed.")]
+            public static partial void HibernateFailed(ILogger logger, Exception exception);
         }
     }
 }

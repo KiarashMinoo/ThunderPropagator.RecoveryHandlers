@@ -41,7 +41,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
                         transaction: transaction,
                         cancellationToken: cancellationToken));
                 }
-            }, "Backing up recovery table has failed.", cancellationToken);
+            }, Log.BackupFailed, cancellationToken);
         }
     }
 }
