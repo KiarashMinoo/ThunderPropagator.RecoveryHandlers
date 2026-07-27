@@ -16,11 +16,6 @@ updates:
       - "security"
     open-pull-requests-limit: 10
     groups:
-      microsoft-extensions:
-        patterns:
-          - "Microsoft.Extensions.*"
-          - "Microsoft.AspNetCore.*"
-          - "Asp.Versioning.*"
       redis:
         patterns:
           - "StackExchange.Redis*"
@@ -31,6 +26,21 @@ updates:
           - "coverlet.*"
           - "NetArchTest.Rules"
           - "Microsoft.NET.Test.Sdk"
+    # These are pinned per-TargetFramework in Directory.Packages.props (net8.0 -> 8.*,
+    # net9.0 -> 9.*, net10.0 -> 10.*) — CentralPackageFloatingVersionsEnabled already
+    # floats each to the latest matching release at restore time, and Dependabot can't
+    # represent one package pinned to three different major versions depending on TFM
+    # as a single update target, so they're ignored here to avoid incorrect/duplicate PRs.
+    # (This also empties out what used to be the "microsoft-extensions" group above —
+    # every package it matched lives only in this TFM-conditioned block.)
+    ignore:
+      - dependency-name: "Asp.Versioning.Http"
+      - dependency-name: "Microsoft.AspNetCore.Authorization"
+      - dependency-name: "Microsoft.Extensions.Caching.Memory"
+      - dependency-name: "Microsoft.Extensions.Diagnostics.HealthChecks"
+      - dependency-name: "Microsoft.Extensions.Diagnostics.ResourceMonitoring"
+      - dependency-name: "Microsoft.Extensions.ObjectPool"
+      - dependency-name: "Npgsql"
 
   # Keep GitHub Actions pinned and up-to-date.
   # Dependabot automatically proposes SHA-pinned updates so action versions
