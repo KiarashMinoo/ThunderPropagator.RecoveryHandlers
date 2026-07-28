@@ -55,7 +55,7 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql
 
                     if (!snapshotEntries.TryGetValue(entry.HashKey, out var snapshotEntry))
                     {
-                        snapshotEntry = SetSnapshotEntry(
+                        snapshotEntry = SetSnapshot(
                             entry.HashKey,
                             entry.Keys.FromNJson<Dictionary<string, object?>>()!,
                             castType,

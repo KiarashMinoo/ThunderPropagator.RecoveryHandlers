@@ -58,7 +58,7 @@ namespace ThunderPropagator.RecoveryHandler.MongoDb
                         options.AutoMap();
                         options.SetIgnoreExtraElements(true);
 
-                        options.MapCreator(snapshotEntry => SetSnapshotEntry(snapshotEntry.HashKey, snapshotEntry.Keys, snapshotEntry.CastType, snapshotEntry.Snapshot));
+                        options.MapCreator(snapshotEntry => SetSnapshot(snapshotEntry.HashKey, snapshotEntry.Keys, snapshotEntry.CastType, snapshotEntry.Snapshot));
                         options.MapIdField(snapshotEntry => snapshotEntry.HashKey);
                         options.MapMember(snapshotEntry => snapshotEntry.Keys);
                         options.MapMember(snapshotEntry => snapshotEntry.CastType);

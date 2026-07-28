@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using ThunderPropagator.Application;
+using ThunderPropagator.Application.Features;
 
 namespace ThunderPropagator.RecoveryHandler.Redis;
 

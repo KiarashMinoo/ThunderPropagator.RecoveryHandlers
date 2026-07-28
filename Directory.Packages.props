@@ -4,13 +4,9 @@
     <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
   </PropertyGroup>
   <PropertyGroup Label="ThunderPropagatorPackages">
-    <BuildingBlocksVersion>1.0.1-beta.120</BuildingBlocksVersion>
-    <BuildingBlocksPackageId>ThunderPropagator.BuildingBlocks$(PackageIdConfigurationSuffix)$(PackageIdPlatformSuffix)</BuildingBlocksPackageId>
-    <ThunderPropagatorVersion>1.0.1-beta.202</ThunderPropagatorVersion>
-    <ThunderPropagatorPackageId>ThunderPropagator$(PackageIdConfigurationSuffix)$(PackageIdPlatformSuffix)</ThunderPropagatorPackageId>
+    <ThunderPropagatorVersion>1.0.1-beta.203</ThunderPropagatorVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="$(BuildingBlocksPackageId)" Version="$(BuildingBlocksVersion)" />
     <PackageVersion Include="$(ThunderPropagatorPackageId)" Version="$(ThunderPropagatorVersion)" />
     <PackageVersion Include="Dapper" Version="2.1.79" />
   </ItemGroup>

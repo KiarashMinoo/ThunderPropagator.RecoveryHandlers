@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using ThunderPropagator.Application;
+using ThunderPropagator.Application.Features;
 
 namespace ThunderPropagator.RecoveryHandler.Postgresql;
 
@@ -10,6 +11,6 @@ namespace ThunderPropagator.RecoveryHandler.Postgresql;
 [Description("Supports PostgreSQL as a recovery storage solution for reliable data recovery and persistence.")]
 internal
 #if !DEBUG
-        sealed
+    sealed
 #endif
     class PostgresqlRecoveryStorageFeature : IFeature;
