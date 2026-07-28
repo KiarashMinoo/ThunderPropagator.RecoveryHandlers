@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.11] — 2026-07-28
+
+### 📦 Dependencies
+
+- ThunderPropagatorPackages: update version to 1.0.1-beta.204 `(c7e132a)` — Kiarash Minoo
+
 ## [1.0.0-beta.10] — 2026-07-28
 
 ### 🐛 Bug Fixes
