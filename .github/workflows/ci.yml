@@ -69,6 +69,7 @@ jobs:
       publish-to-nuget: true
       nuget-target: 'nuget.org'
       nuget-auth-mode: 'classic'
+      nuget-filter-enabled: true
     secrets:
       gh-token: ${{ secrets.GITHUB_TOKEN }}
       push-token: ${{ secrets.ADMIN_PUSH_TOKEN }}
@@ -89,6 +90,7 @@ jobs:
       publish-to-nuget: true
       nuget-target: 'nuget.org'
       nuget-auth-mode: 'classic'
+      nuget-filter-enabled: true
     secrets:
       gh-token: ${{ secrets.GITHUB_TOKEN }}
       push-token: ${{ secrets.ADMIN_PUSH_TOKEN }}
