@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.9] — 2026-07-27
+
+### 🏠 Chores
+
+- Ignore TFM-pinned deps in Dependabot `(3840949)` — Kiarash Minoo
+
 ## [1.0.0-beta.8] — 2026-07-27
 
 ### 📝 Documentation

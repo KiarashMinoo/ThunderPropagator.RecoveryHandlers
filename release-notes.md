@@ -1,5 +1,5 @@
-## [1.0.0-beta.8] — 2026-07-27
+## [1.0.0-beta.9] — 2026-07-27
 
-### 📝 Documentation
+### 🏠 Chores
 
-- rebuild repository documentation `(03f7028)` — Codex
+- Ignore TFM-pinned deps in Dependabot `(3840949)` — Kiarash Minoo
