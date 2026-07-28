@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.10] — 2026-07-28
+
+### 🐛 Bug Fixes
+
+- ThunderPropagator.RecoveryHandlers: Bump core package, fix Features usings and snapshot rename `(caf95f4)` — Kiarash Minoo
+
+### 🏠 Chores
+
+- ThunderPropagator.RecoveryHandlers: Rework shared-props bootstrap into its own file, add solution-level dependency check `(311e234)` — Kiarash Minoo
+
 ## [1.0.0-beta.9] — 2026-07-27
 
 ### 🏠 Chores
