@@ -4,7 +4,7 @@
     <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
   </PropertyGroup>
   <PropertyGroup Label="ThunderPropagatorPackages">
-    <ThunderPropagatorVersion>1.0.1-beta.203</ThunderPropagatorVersion>
+    <ThunderPropagatorVersion>1.0.1-beta.204</ThunderPropagatorVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="$(ThunderPropagatorPackageId)" Version="$(ThunderPropagatorVersion)" />
