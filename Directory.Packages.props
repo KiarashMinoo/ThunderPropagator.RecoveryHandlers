@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="MongoDB.Driver" Version="3.10.0" />
-    <PackageVersion Include="StackExchange.Redis" Version="3.0.17" />
+    <PackageVersion Include="StackExchange.Redis" Version="3.1.0" />
     <PackageVersion Include="Pluralize.NET.Core" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup Label="Testing Packages">
