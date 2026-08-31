@@ -38,7 +38,7 @@
     <PackageVersion Include="Npgsql" Version="10.*" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="MongoDB.Driver" Version="3.10.0" />
+    <PackageVersion Include="MongoDB.Driver" Version="3.11.1" />
     <PackageVersion Include="StackExchange.Redis" Version="3.0.17" />
     <PackageVersion Include="Pluralize.NET.Core" Version="1.0.0" />
   </ItemGroup>
