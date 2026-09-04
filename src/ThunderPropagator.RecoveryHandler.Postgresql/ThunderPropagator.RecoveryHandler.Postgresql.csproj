@@ -7,4 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ThunderPropagator.RecoveryHandler.SharedKernel\ThunderPropagator.RecoveryHandler.SharedKernel.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Update="Npgsql" Version="10.0.3" />
+  </ItemGroup>
 </Project>
