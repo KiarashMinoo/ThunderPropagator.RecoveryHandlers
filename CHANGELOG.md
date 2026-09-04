@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.13] — 2026-09-04
+
+### ⚙️ CI / Tooling
+
+- ThunderPropagator.RecoveryHandlers: switch NuGet publish to OIDC Trusted Publishing `(4b092f7)` — Kiarash Minoo
+
 ## [1.0.0-beta.12] — 2026-07-28
 
 ### 📦 Dependencies
