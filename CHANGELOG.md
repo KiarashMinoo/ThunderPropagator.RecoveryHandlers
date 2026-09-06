@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0-beta.14] — 2026-09-06
+
+### ⚙️ CI / Tooling
+
+- ThunderPropagator.RecoveryHandlers: disable NuGet filter, bump package `(24a2bee)` — Kiarash Minoo
+
 ## [1.0.0-beta.13] — 2026-09-04
 
 ### ⚙️ CI / Tooling
