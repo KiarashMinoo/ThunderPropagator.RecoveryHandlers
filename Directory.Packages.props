@@ -4,7 +4,7 @@
     <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="$(ThunderPropagatorPackageId)" Version="1.0.1-beta.216" />
+    <PackageVersion Include="$(ThunderPropagatorPackageId)" Version="1.0.1-beta.218" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'" Label="Microsoft.Extensions">
     <PackageVersion Include="Asp.Versioning.Http" Version="8.*" />
