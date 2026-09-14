@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.1-beta.18] — 2026-09-14
+
+### 🏠 Chores
+
+- ThunderPropagator.RecoveryHandlers: move backend pattern docs to .claude/rules, bump MongoDB.Driver `(9c549b8)` — Kiarash Minoo
+
 ## [1.0.1-beta.17] — 2026-09-14
 
 ### 📦 Dependencies
