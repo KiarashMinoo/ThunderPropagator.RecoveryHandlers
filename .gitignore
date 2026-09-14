@@ -38,7 +38,9 @@ $RECYCLE.BIN/
 # ---------------------------------------------------------------------------
 # Local agent and analysis tooling
 # ---------------------------------------------------------------------------
-.claude/
+.claude/*
+!.claude/rules/
+!.claude/rules/**
 .code-review-graph/
 .shared-props/
 .obsidian/
