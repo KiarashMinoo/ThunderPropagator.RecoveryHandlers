@@ -1,9 +1,5 @@
-## [1.0.1-beta.19] — 2026-09-14
+## [1.0.1-beta.20] — 2026-09-15
 
-### 📦 Dependencies
+### ⚙️ CI / Tooling
 
-| Package | Old | New |
-|---------|-----|-----|
-| $(ThunderPropagatorPackageId) | 1.0.1-beta.216 | 1.0.1-beta.218 |
-
-- ThunderPropagator.RecoveryHandlers: bump ThunderPropagator package to beta.218 `(ec94b8d)` — Kiarash Minoo
+- ThunderPropagator.RecoveryHandlers: support literal package names and queued NuGet publishing `(20f8c04)` — Kiarash Minoo
