@@ -1,11 +1,11 @@
-## [1.0.1-beta.21] — 2026-09-22
+## [1.0.1-beta.22] — 2026-09-22
 
 ### 📦 Dependencies
 
 | Package | Old | New |
 |---------|-----|-----|
-| StackExchange.Redis | 3.2.1 | 3.3.0 |
-| Microsoft.NET.Test.Sdk | 18.10.0 | 18.10.1 |
+| FluentAssertions | 8.10.0 | 8.11.0 |
+| MongoDB.Driver | 3.11.2 | 3.12.0 |
 
-- Bump the redis group with 1 update `(285217c)` — dependabot[bot]
-- Bump the testing group with 1 update `(96e9652)` — dependabot[bot]
+- Bump FluentAssertions from 8.10.0 to 8.11.0 `(87119f8)` — dependabot[bot]
+- Bump MongoDB.Driver from 3.11.2 to 3.12.0 `(0a00ecc)` — dependabot[bot]
