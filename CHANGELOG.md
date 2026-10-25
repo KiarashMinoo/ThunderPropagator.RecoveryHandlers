@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.1-beta.25] — 2026-10-25
+
+### ⚙️ CI / Tooling
+
+- ThunderPropagator.RecoveryHandlers: Float family package version and add third-party updater `(531cc6a)` — Kiarash Minoo
+
 ## [1.0.1-beta.24] — 2026-10-25
 
 ### 📦 Dependencies
