@@ -34,7 +34,7 @@
     <PackageVersion Include="Npgsql" Version="10.*" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Dapper" Version="2.1.89" />
+    <PackageVersion Include="Dapper" Version="2.1.100" />
     <PackageVersion Include="MongoDB.Driver" Version="3.13.0" />
     <PackageVersion Include="StackExchange.Redis" Version="3.4.20" />
     <PackageVersion Include="Pluralize.NET.Core" Version="1.0.0" />
