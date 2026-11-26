@@ -53,6 +53,10 @@ Packages are restored from the feeds configured by the repository and the defaul
 
 This repository is part of the broader ThunderPropagator and LicenseManager technology portfolio. Each repository owns a focused capability while shared protocols, build conventions, and documentation keep the ecosystem aligned.
 
+## Author
+
+Built by [Ahmad Kiarash Minoo](https://kiarashminoo.com/). Read the [ThunderPropagator overview](https://kiarashminoo.com/projects/thunderpropagator/).
+
 ## License
 
 See the repository metadata and distributed packages for applicable licensing terms.
